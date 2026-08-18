@@ -1,0 +1,160 @@
+package view;
+
+import model.User;
+import javax.swing.JOptionPane;
+
+public class DentistDashboard extends javax.swing.JFrame {
+    private User currentUser;
+
+    public DentistDashboard() { initComponents(); setLocationRelativeTo(null); }
+    public DentistDashboard(User currentUser) { this(); this.currentUser=currentUser; lblUser.setText("Welcome, Dr. "+currentUser.getUsername()); }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        btnAppointments = new javax.swing.JButton();
+        btnAvailability = new javax.swing.JButton();
+        btnNotes = new javax.swing.JButton();
+        btnHelp = new javax.swing.JButton();
+        lblTitle = new javax.swing.JLabel();
+        lblUser = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sunrise Dental Clinic - Dentist Dashboard");
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnAppointments.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/appointment.png"))); // NOI18N
+        btnAppointments.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAppointments.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAppointmentsActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAppointments, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 100, 104));
+
+        btnAvailability.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/time-management.png"))); // NOI18N
+        btnAvailability.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAvailability.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvailabilityActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 100, 100));
+
+        btnNotes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Notes.png"))); // NOI18N
+        btnNotes.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnNotes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNotesActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnNotes, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, 103, 100));
+
+        btnHelp.setText("Help");
+        btnHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHelpActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, -1, -1));
+
+        lblTitle.setFont(new java.awt.Font("Felix Titling", 0, 24)); // NOI18N
+        lblTitle.setText("DENTIST DASHBOARD");
+        jPanel1.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, -1, 75));
+
+        lblUser.setFont(new java.awt.Font("Gill Sans MT", 2, 14)); // NOI18N
+        lblUser.setText("Welcome,");
+        jPanel1.add(lblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 25, -1, -1));
+
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 30, -1, -1));
+
+        btnExit.setText("Exit System");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(762, 46, -1, -1));
+
+        jLabel1.setText("View / Approve Appointments");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
+
+        jLabel2.setText("Manage Available Dates & Time");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, -1, -1));
+
+        jLabel3.setText("Patient Special Notes");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 320, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/logo (2).png"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 410, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/BG - Copy.png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 738, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentsActionPerformed
+        if(currentUser!=null) new AppointmentApprovalForm(currentUser).setVisible(true);
+    }//GEN-LAST:event_btnAppointmentsActionPerformed
+    private void btnAvailabilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvailabilityActionPerformed
+        if(currentUser!=null) new ManageAvailabilityForm(currentUser).setVisible(true);
+    }//GEN-LAST:event_btnAvailabilityActionPerformed
+    private void btnNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotesActionPerformed
+        if(currentUser!=null) new DentistNotesForm(currentUser).setVisible(true);
+    }//GEN-LAST:event_btnNotesActionPerformed
+    private void btnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpActionPerformed
+        new HelpForm("DENTIST").setVisible(true);
+    }//GEN-LAST:event_btnHelpActionPerformed
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        int option=JOptionPane.showConfirmDialog(this,"Do you want to logout?","Logout",JOptionPane.YES_NO_OPTION); if(option==JOptionPane.YES_OPTION){new Login().setVisible(true);dispose();}
+    }//GEN-LAST:event_btnLogoutActionPerformed
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        int option=JOptionPane.showConfirmDialog(this,"Are you sure you want to exit?","Exit",JOptionPane.YES_NO_OPTION); if(option==JOptionPane.YES_OPTION)System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAppointments;
+    private javax.swing.JButton btnAvailability;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnHelp;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnNotes;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblUser;
+    // End of variables declaration//GEN-END:variables
+}

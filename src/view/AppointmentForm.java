@@ -1,0 +1,199 @@
+package view;
+
+import dao.AppointmentDAO;
+import dao.DentistDAO;
+import dao.TreatmentTypeDAO;
+import model.Appointment;
+import model.Dentist;
+import model.TreatmentType;
+import model.User;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.List;
+import javax.swing.JOptionPane;
+
+public class AppointmentForm extends javax.swing.JFrame {
+    private User currentUser;
+
+    public AppointmentForm(){ initComponents(); setLocationRelativeTo(null); loadDentists(); loadTreatmentTypes(); }
+    public AppointmentForm(User currentUser){ this(); this.currentUser=currentUser; }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        pnlForm = new javax.swing.JPanel();
+        lblAppointmentNo = new javax.swing.JLabel();
+        txtAppointmentNo = new javax.swing.JTextField();
+        lblPatientName = new javax.swing.JLabel();
+        txtPatientName = new javax.swing.JTextField();
+        lblAddress = new javax.swing.JLabel();
+        txtAddress = new javax.swing.JTextField();
+        lblContact = new javax.swing.JLabel();
+        txtContact = new javax.swing.JTextField();
+        lblDentist = new javax.swing.JLabel();
+        cmbDentist = new javax.swing.JComboBox();
+        lblTreatment = new javax.swing.JLabel();
+        cmbTreatment = new javax.swing.JComboBox();
+        lblDate = new javax.swing.JLabel();
+        txtDate = new javax.swing.JTextField();
+        lblTime = new javax.swing.JLabel();
+        txtTime = new javax.swing.JTextField();
+        btnSave = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
+        btnClose = new javax.swing.JButton();
+        lblTitle = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Register New Appointment");
+
+        pnlForm.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblAppointmentNo.setText("Appointment Number:");
+        pnlForm.add(lblAppointmentNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 79, -1, -1));
+
+        txtAppointmentNo.setColumns(20);
+        pnlForm.add(txtAppointmentNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 76, -1, -1));
+
+        lblPatientName.setText("Patient Name:");
+        pnlForm.add(lblPatientName, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 128, -1, -1));
+
+        txtPatientName.setColumns(20);
+        pnlForm.add(txtPatientName, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 125, -1, -1));
+
+        lblAddress.setText("Address:");
+        pnlForm.add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 174, -1, -1));
+
+        txtAddress.setColumns(20);
+        pnlForm.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 171, -1, -1));
+
+        lblContact.setText("Contact Number:");
+        pnlForm.add(lblContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 217, -1, -1));
+
+        txtContact.setColumns(20);
+        pnlForm.add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 214, -1, -1));
+
+        lblDentist.setText("Dentist:");
+        pnlForm.add(lblDentist, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 263, -1, -1));
+        pnlForm.add(cmbDentist, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 260, 160, -1));
+
+        lblTreatment.setText("Treatment Type:");
+        pnlForm.add(lblTreatment, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 316, -1, -1));
+        pnlForm.add(cmbTreatment, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 313, 160, -1));
+
+        lblDate.setText("Appointment Date (YYYY-MM-DD):");
+        pnlForm.add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 356, -1, -1));
+
+        txtDate.setColumns(20);
+        pnlForm.add(txtDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 353, -1, -1));
+
+        lblTime.setText("Appointment Time (HH:MM):");
+        pnlForm.add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 406, -1, -1));
+
+        txtTime.setColumns(20);
+        pnlForm.add(txtTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 403, -1, -1));
+
+        btnSave.setText("Save");
+        btnSave.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(51, 255, 255), null, new java.awt.Color(0, 153, 255)));
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+        pnlForm.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 430, 72, 29));
+
+        btnClear.setText("Clear all");
+        btnClear.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 102, 102), new java.awt.Color(204, 0, 0)));
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
+        pnlForm.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, 64, 29));
+
+        btnClose.setText("Close");
+        btnClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseActionPerformed(evt);
+            }
+        });
+        pnlForm.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 20, -1, -1));
+
+        lblTitle.setFont(new java.awt.Font("Felix Titling", 0, 24)); // NOI18N
+        lblTitle.setText("REGISTER NEW APPOINTMENT");
+        pnlForm.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/BG - Copy.png"))); // NOI18N
+        pnlForm.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 490));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void loadDentists(){ cmbDentist.removeAllItems(); List<Dentist> list=new DentistDAO().getAllDentists(); for(Dentist d:list)cmbDentist.addItem(d); }
+    private void loadTreatmentTypes(){ cmbTreatment.removeAllItems(); List<TreatmentType> list=new TreatmentTypeDAO().getAllTreatmentTypes(); for(TreatmentType t:list)cmbTreatment.addItem(t); }
+    private boolean validateAppointment(){
+        String no=txtAppointmentNo.getText().trim(),name=txtPatientName.getText().trim(),address=txtAddress.getText().trim(),contact=txtContact.getText().trim(),date=txtDate.getText().trim(),time=txtTime.getText().trim();
+        if(no.isEmpty()||name.isEmpty()||address.isEmpty()||contact.isEmpty()||date.isEmpty()||time.isEmpty()){JOptionPane.showMessageDialog(this,"Please fill all fields.");return false;}
+        if(!no.matches("[A-Za-z0-9-]{3,20}")){JOptionPane.showMessageDialog(this,"Invalid appointment number.");return false;}
+        if(!name.matches("[A-Za-z .'-]{2,60}")){JOptionPane.showMessageDialog(this,"Enter a valid patient name.");return false;}
+        if(!contact.matches("0\\d{9}")){JOptionPane.showMessageDialog(this,"Contact number must contain 10 digits and start with 0.");return false;}
+        try{LocalDate d=LocalDate.parse(date);if(d.isBefore(LocalDate.now())){JOptionPane.showMessageDialog(this,"Appointment date cannot be in the past.");return false;}}catch(Exception e){JOptionPane.showMessageDialog(this,"Date must be YYYY-MM-DD.");return false;}
+        try{LocalTime.parse(time);}catch(Exception e){JOptionPane.showMessageDialog(this,"Time must be HH:MM.");return false;}
+        if(cmbDentist.getSelectedItem()==null||cmbTreatment.getSelectedItem()==null){JOptionPane.showMessageDialog(this,"Select dentist and treatment type.");return false;}
+        return true;
+    }
+    private void clearFields(){txtAppointmentNo.setText("");txtPatientName.setText("");txtAddress.setText("");txtContact.setText("");txtDate.setText("");txtTime.setText("");if(cmbDentist.getItemCount()>0)cmbDentist.setSelectedIndex(0);if(cmbTreatment.getItemCount()>0)cmbTreatment.setSelectedIndex(0);}
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        if(currentUser==null){JOptionPane.showMessageDialog(this,"Please login as clinic staff first.");return;} if(!validateAppointment())return;
+        Dentist dentist=(Dentist)cmbDentist.getSelectedItem(); TreatmentType treatment=(TreatmentType)cmbTreatment.getSelectedItem(); String no=txtAppointmentNo.getText().trim(),date=txtDate.getText().trim(),time=txtTime.getText().trim(); AppointmentDAO dao=new AppointmentDAO();
+        if(dao.appointmentExists(no)){JOptionPane.showMessageDialog(this,"Appointment number already exists.");return;}
+        if(!dao.isDentistAvailable(dentist.getDentistId(),date,time)){JOptionPane.showMessageDialog(this,"Dentist is not available at this date/time. Check Dentist Schedule.");return;}
+        if(dao.isDentistBooked(dentist.getDentistId(),date,time)){JOptionPane.showMessageDialog(this,"Dentist already has an appointment at this time.");return;}
+        Appointment a=new Appointment();a.setAppointmentNo(no);a.setPatientName(txtPatientName.getText().trim());a.setAddress(txtAddress.getText().trim());a.setContactNo(txtContact.getText().trim());a.setDentistId(dentist.getDentistId());a.setTreatmentTypeId(treatment.getTreatmentTypeId());a.setAppointmentDate(date);a.setAppointmentTime(time);a.setCreatedBy(currentUser.getUserId());
+        if(dao.addAppointment(a)){JOptionPane.showMessageDialog(this,"Appointment registered successfully. Status: PENDING");clearFields();}else JOptionPane.showMessageDialog(this,"Unable to register appointment.");
+    }//GEN-LAST:event_btnSaveActionPerformed
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        clearFields();
+    }//GEN-LAST:event_btnClearActionPerformed
+    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnCloseActionPerformed
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnClose;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JComboBox cmbDentist;
+    private javax.swing.JComboBox cmbTreatment;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblAddress;
+    private javax.swing.JLabel lblAppointmentNo;
+    private javax.swing.JLabel lblContact;
+    private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblDentist;
+    private javax.swing.JLabel lblPatientName;
+    private javax.swing.JLabel lblTime;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblTreatment;
+    private javax.swing.JPanel pnlForm;
+    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtAppointmentNo;
+    private javax.swing.JTextField txtContact;
+    private javax.swing.JTextField txtDate;
+    private javax.swing.JTextField txtPatientName;
+    private javax.swing.JTextField txtTime;
+    // End of variables declaration//GEN-END:variables
+}

@@ -1,0 +1,200 @@
+package view;
+
+import dao.AppointmentDAO;
+import dao.PatientNoteDAO;
+import model.Appointment;
+import model.PatientNote;
+import model.User;
+import java.util.List;
+import javax.swing.JOptionPane;
+
+public class DentistNotesForm extends javax.swing.JFrame {
+    private User currentUser;private Appointment currentAppointment;
+    public DentistNotesForm(){initComponents();setLocationRelativeTo(null);}
+    public DentistNotesForm(User currentUser){this();this.currentUser=currentUser;}
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        pnlCenter = new javax.swing.JPanel();
+        btnSearch = new javax.swing.JButton();
+        txtAppointmentNo = new javax.swing.JTextField();
+        lblAppointmentNo = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAppointmentDetails = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtNote = new javax.swing.JTextArea();
+        btnSave = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
+        btnClose = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Patient Special Notes");
+
+        btnSearch.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        btnSearch.setText("Search");
+        btnSearch.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        txtAppointmentNo.setColumns(15);
+
+        lblAppointmentNo.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        lblAppointmentNo.setText("Appointment Number:");
+
+        txtAppointmentDetails.setEditable(false);
+        txtAppointmentDetails.setColumns(20);
+        txtAppointmentDetails.setRows(5);
+        txtAppointmentDetails.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.lightGray, null));
+        jScrollPane1.setViewportView(txtAppointmentDetails);
+
+        txtNote.setColumns(20);
+        txtNote.setLineWrap(true);
+        txtNote.setRows(5);
+        txtNote.setWrapStyleWord(true);
+        txtNote.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 153, 255), null));
+        jScrollPane2.setViewportView(txtNote);
+
+        btnSave.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
+        btnSave.setText("Save / Update Note");
+        btnSave.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+
+        btnClear.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
+        btnClear.setText("Clear");
+        btnClear.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
+
+        btnClose.setText("Close");
+        btnClose.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        jLabel1.setText("Note");
+
+        jLabel2.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        jLabel2.setText("Appointment Details");
+
+        javax.swing.GroupLayout pnlCenterLayout = new javax.swing.GroupLayout(pnlCenter);
+        pnlCenter.setLayout(pnlCenterLayout);
+        pnlCenterLayout.setHorizontalGroup(
+            pnlCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCenterLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(pnlCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlCenterLayout.createSequentialGroup()
+                        .addComponent(lblAppointmentNo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtAppointmentNo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
+                        .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41))
+                    .addGroup(pnlCenterLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(85, 85, 85))
+                    .addGroup(pnlCenterLayout.createSequentialGroup()
+                        .addGroup(pnlCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addGroup(pnlCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        pnlCenterLayout.setVerticalGroup(
+            pnlCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCenterLayout.createSequentialGroup()
+                .addGroup(pnlCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlCenterLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(pnlCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtAppointmentNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAppointmentNo)
+                            .addComponent(btnSearch)))
+                    .addGroup(pnlCenterLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(btnClose)))
+                .addGap(24, 24, 24)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addGap(1, 1, 1)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(pnlCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnClear)
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlCenter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlCenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+    private void loadNotes(){if(currentAppointment==null)return;List<PatientNote> notes=new PatientNoteDAO().getNotesByAppointment(currentAppointment.getAppointmentNo());StringBuilder sb=new StringBuilder();txtNote.setText("");for(PatientNote n:notes){sb.append("Dentist: ").append(n.getDentistName()).append("\nDate: ").append(n.getNoteDate()).append("\nNote: ").append(n.getNote()).append("\n---------------------------------------\n");if(currentUser!=null&&n.getDentistId()==currentUser.getDentistId())txtNote.setText(n.getNote());}if(notes.isEmpty())sb.append("No notes available.");}
+    private void clearForm(){txtAppointmentNo.setText("");txtAppointmentDetails.setText("");txtNote.setText("");currentAppointment=null;}
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        if(currentUser==null||currentUser.getDentistId()==null){JOptionPane.showMessageDialog(this,"Please login as a dentist first.");return;}String no=txtAppointmentNo.getText().trim();if(no.isEmpty()){JOptionPane.showMessageDialog(this,"Enter appointment number.");return;}currentAppointment=new AppointmentDAO().getAppointmentByNo(no);if(currentAppointment==null){JOptionPane.showMessageDialog(this,"Appointment not found.");return;}if(currentAppointment.getDentistId()!=currentUser.getDentistId()){JOptionPane.showMessageDialog(this,"This appointment is not assigned to you.");currentAppointment=null;return;}txtAppointmentDetails.setText("Appointment No: "+currentAppointment.getAppointmentNo()+"\nPatient: "+currentAppointment.getPatientName()+"\nContact: "+currentAppointment.getContactNo()+"\nTreatment: "+currentAppointment.getTreatmentType()+"\nDate: "+currentAppointment.getAppointmentDate()+"\nTime: "+currentAppointment.getAppointmentTime()+"\nStatus: "+currentAppointment.getStatus());loadNotes();
+    }//GEN-LAST:event_btnSearchActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        if(currentAppointment==null){JOptionPane.showMessageDialog(this,"Search for an appointment first.");return;}String note=txtNote.getText().trim();if(note.isEmpty()){JOptionPane.showMessageDialog(this,"Enter a patient note.");return;}if(note.length()>1000){JOptionPane.showMessageDialog(this,"Patient note cannot exceed 1000 characters.");return;}if(new PatientNoteDAO().addOrUpdateNote(currentAppointment.getAppointmentNo(),currentUser.getDentistId(),note)){JOptionPane.showMessageDialog(this,"Patient note saved successfully.");loadNotes();}else JOptionPane.showMessageDialog(this,"Unable to save patient note.");
+    }//GEN-LAST:event_btnSaveActionPerformed
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        clearForm();
+    }//GEN-LAST:event_btnClearActionPerformed
+    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnCloseActionPerformed
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnClose;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblAppointmentNo;
+    private javax.swing.JPanel pnlCenter;
+    private javax.swing.JTextArea txtAppointmentDetails;
+    private javax.swing.JTextField txtAppointmentNo;
+    private javax.swing.JTextArea txtNote;
+    // End of variables declaration//GEN-END:variables
+}

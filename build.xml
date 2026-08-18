@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SunriseDentalClinic" default="jar" basedir=".">
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+    <property name="dist.dir" value="dist"/>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false" source="1.8" target="1.8" encoding="UTF-8"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="${dist.dir}"/>
+        <jar destfile="${dist.dir}/SunriseDentalClinic.jar" basedir="${classes.dir}">
+            <manifest><attribute name="Main-Class" value="view.Login"/></manifest>
+        </jar>
+    </target>
+
+    <target name="run" depends="compile">
+        <java classname="view.Login" fork="true">
+            <classpath><pathelement location="${classes.dir}"/></classpath>
+        </java>
+    </target>
+</project>

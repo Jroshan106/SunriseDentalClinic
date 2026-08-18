@@ -1,0 +1,142 @@
+package view;
+
+import dao.UserDAO;
+import model.User;
+import javax.swing.JOptionPane;
+
+public class Login extends javax.swing.JFrame {
+
+    public Login() {
+        initComponents();
+        setLocationRelativeTo(null);
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        pnlForm = new javax.swing.JPanel();
+        lblUsername = new javax.swing.JLabel();
+        btnLogin = new javax.swing.JButton();
+        lblPassword = new javax.swing.JLabel();
+        btnExit = new javax.swing.JButton();
+        txtPassword = new javax.swing.JPasswordField();
+        txtUsername = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sunrise Dental Clinic - Login");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnlForm.setPreferredSize(new java.awt.Dimension(1280, 720));
+        pnlForm.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblUsername.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lblUsername.setText("Username:");
+        pnlForm.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 90, 30));
+
+        btnLogin.setFont(new java.awt.Font("Gill Sans MT", 1, 18)); // NOI18N
+        btnLogin.setText("Login");
+        btnLogin.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 153, 255), new java.awt.Color(255, 153, 0)));
+        btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
+        pnlForm.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, 80, 30));
+
+        lblPassword.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lblPassword.setText("Password:");
+        pnlForm.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 90, 30));
+
+        btnExit.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 18)); // NOI18N
+        btnExit.setText("Exit");
+        btnExit.setAlignmentX(0.5F);
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+        pnlForm.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 60, 30));
+
+        txtPassword.setColumns(15);
+        txtPassword.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 102, 255), null, new java.awt.Color(153, 153, 153)));
+        pnlForm.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 260, 31));
+
+        txtUsername.setColumns(15);
+        txtUsername.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 102, 204), null, new java.awt.Color(153, 153, 153)));
+        txtUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsernameActionPerformed(evt);
+            }
+        });
+        pnlForm.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 260, 31));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/logo login.png"))); // NOI18N
+        pnlForm.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 0, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/BG.png"))); // NOI18N
+        pnlForm.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 440));
+
+        getContentPane().add(pnlForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 440));
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        String username = txtUsername.getText().trim();
+        String password = new String(txtPassword.getPassword()).trim();
+        if (username.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter username and password.");
+            return;
+        }
+        User user = new UserDAO().login(username, password);
+        if (user == null) {
+            JOptionPane.showMessageDialog(this, "Invalid username or password.", "Login Failed", JOptionPane.ERROR_MESSAGE);
+            txtPassword.setText("");
+            return;
+        }
+        if ("STAFF".equalsIgnoreCase(user.getRole())) {
+            new StaffDashboard(user).setVisible(true);
+            dispose();
+        } else if ("DENTIST".equalsIgnoreCase(user.getRole())) {
+            if (user.getDentistId() == null) {
+                JOptionPane.showMessageDialog(this, "Dentist account is not linked to a dentist record.");
+                return;
+            }
+            new DentistDashboard(user).setVisible(true);
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Unknown user role.");
+        }
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to exit?", "Exit", JOptionPane.YES_NO_OPTION);
+        if (option == JOptionPane.YES_OPTION) System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsernameActionPerformed
+
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() { new Login().setVisible(true); }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblUsername;
+    private javax.swing.JPanel pnlForm;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUsername;
+    // End of variables declaration//GEN-END:variables
+}
