@@ -3,29 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/Login.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/DentistDashboard.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/StaffDashboard.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/BillingForm.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/db/TestConnection.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/AppointmentApprovalForm.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/AppointmentForm.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/DentistNotesForm.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/DentistScheduleForm.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/HelpForm.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/ManageAvailabilityForm.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/SearchAppointmentForm.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/ReportsForm.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/StaffNotesForm.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/db/DBConnection.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/model/Appointment.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/model/Bill.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/model/Dentist.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/model/DentistAvailability.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/model/PatientNote.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/model/TreatmentType.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/model/Patient.java</file>
-            <file>file:/C:/Users/Pc/Downloads/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/model/User.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/Login.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/DentistNotesForm.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/BillingForm.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/AppointmentApprovalForm.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/AppointmentForm.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/DentistDashboard.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/DentistScheduleForm.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/HelpForm.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/ManageAvailabilityForm.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/ReportsForm.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/SearchAppointmentForm.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/StaffDashboard.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/StaffNotesForm.java</file>
         </group>
     </open-files>
 </project-private>

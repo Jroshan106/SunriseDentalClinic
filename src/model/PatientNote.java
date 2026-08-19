@@ -1,4 +1,13 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package model;
+
+/**
+ *
+ * @author Pc
+ */
 
 public class PatientNote {
     private int noteId;
@@ -8,21 +17,58 @@ public class PatientNote {
     private String note;
     private String noteDate;
 
-    public int getNoteId() { return noteId; }
-    public void setNoteId(int noteId) { this.noteId = noteId; }
+    public int getNoteId() 
+    {
+        return noteId; 
+    }
+    public void setNoteId(int noteId) 
+    {
+        this.noteId = noteId; 
+    }
 
-    public String getAppointmentNo() { return appointmentNo; }
-    public void setAppointmentNo(String appointmentNo) { this.appointmentNo = appointmentNo; }
+    public String getAppointmentNo() 
+    {
+        return appointmentNo; 
+    }
+    public void setAppointmentNo(String appointmentNo) 
+    {
+        this.appointmentNo = appointmentNo; 
+    }
 
-    public int getDentistId() { return dentistId; }
-    public void setDentistId(int dentistId) { this.dentistId = dentistId; }
+    public int getDentistId() 
+    {
+        return dentistId;
+    }
+    public void setDentistId(int dentistId) 
+    {
+        this.dentistId = dentistId; 
+    }
 
-    public String getDentistName() { return dentistName; }
-    public void setDentistName(String dentistName) { this.dentistName = dentistName; }
+    public String getDentistName() 
+ 
+    {
+        return dentistName; 
+    }
+    public void setDentistName(String dentistName) 
+    {
+        this.dentistName = dentistName; 
+    }
 
-    public String getNote() { return note; }
-    public void setNote(String note) { this.note = note; }
+    public String getNote() 
+    {
+        return note; 
+    }
+    public void setNote(String note) 
+    { 
+        this.note = note; 
+    }
 
-    public String getNoteDate() { return noteDate; }
-    public void setNoteDate(String noteDate) { this.noteDate = noteDate; }
+    public String getNoteDate() 
+    {
+        return noteDate; 
+    }
+    public void setNoteDate(String noteDate) 
+    {
+        this.noteDate = noteDate; 
+    }
 }

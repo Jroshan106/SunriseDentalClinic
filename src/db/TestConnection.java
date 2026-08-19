@@ -8,7 +8,8 @@ public class TestConnection {
             if (con != null) {
                 System.out.println("Database connected successfully!");
             }
-        } catch (Exception e) {
+        } 
+        catch (Exception e){
             System.out.println("Database connection failed: " + e.getMessage());
         }
     }

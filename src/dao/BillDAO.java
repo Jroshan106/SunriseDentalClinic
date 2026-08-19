@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package dao;
 
 import db.DBConnection;
@@ -6,6 +10,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author Pc
+ */
 public class BillDAO {
     public boolean saveBill(Bill b) {
         String sql = "INSERT INTO bills(appointment_no,consultation_fee,treatment_fee,discount,total,bill_date) " +

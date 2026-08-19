@@ -1,8 +1,18 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
+/**
+ *
+ * @author exam
+ */
 
 public class DBConnection {
     private static final String URL = "jdbc:mysql://localhost:3306/sunrise_dental_db";
@@ -10,13 +20,16 @@ public class DBConnection {
     private static final String PASSWORD = "";
     private static final DBConnection INSTANCE = new DBConnection();
 
-    private DBConnection() {
-    }
+    private DBConnection() {}
 
-    public static Connection getConnection() throws SQLException {
-        try {
+    public static Connection getConnection() throws SQLException 
+    {
+        try 
+        {
             Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
+        } 
+        catch (ClassNotFoundException e) 
+        {
             throw new SQLException("MySQL JDBC Driver not found. Add mysql-connector-java-5.1.49.jar to Libraries.", e);
         }
         return DriverManager.getConnection(URL, USER, PASSWORD);
