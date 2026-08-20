@@ -16,6 +16,25 @@
             <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/SearchAppointmentForm.java</file>
             <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/StaffDashboard.java</file>
             <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/StaffNotesForm.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/dao/UserDAO.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/dao/AppointmentDAO.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/dao/PatientNoteDAO.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/dao/DentistDAO.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/dao/DentistAvailabilityDAO.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/dao/BillDAO.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/dao/TreatmentTypeDAO.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/db/DBConnection.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/db/TestConnection.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/model/Appointment.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/model/Bill.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/model/Dentist.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/model/DentistAvailability.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/model/Patient.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/model/PatientNote.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/model/TreatmentType.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/model/User.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/AdminDashboard.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/ManageUserForm.java</file>
         </group>
     </open-files>
 </project-private>

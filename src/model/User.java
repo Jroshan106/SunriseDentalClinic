@@ -10,52 +10,72 @@ package model;
  */
 
 public class User {
+
     private int userId;
     private String username;
     private String password;
     private String role;
+
     private Integer dentistId;
+    private String dentistName;
 
     public int getUserId() 
-    { 
-        return userId; 
+    {
+        return userId;
     }
+
     public void setUserId(int userId) 
-    { 
-        this.userId = userId; 
+    {
+        this.userId = userId;
     }
 
-    public String getUsername() {
-        return username; 
+    public String getUsername() 
+    {
+        return username;
     }
+
     public void setUsername(String username) 
-    { 
-        this.username = username; 
+    {
+        this.username = username;
     }
 
-    public String getPassword() {
-        return password; 
+    public String getPassword() 
+    {
+        return password;
     }
+
     public void setPassword(String password) 
     {
-        this.password = password; 
+        this.password = password;
     }
 
     public String getRole() 
-    { 
-        return role; 
+    {
+        return role;
     }
+
     public void setRole(String role) 
     {
-        this.role = role; 
+        this.role = role;
     }
 
     public Integer getDentistId() 
     {
-        return dentistId; 
+        return dentistId;
     }
-    public void setDentistId(Integer dentistId) 
+
+    public void setDentistId(Integer dentistId)
     {
-        this.dentistId = dentistId; 
+        this.dentistId = dentistId;
+    }
+
+    public String getDentistName() 
+    {
+        return dentistName;
+    }
+
+    public void setDentistName(String dentistName) 
+    {
+        this.dentistName = dentistName;
     }
 }
