@@ -6,12 +6,10 @@ package dao;
 
 import db.DBConnection;
 import model.User;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,22 +38,15 @@ public class UserDAO {
                 if (rs.next()) {
 
                     User u = new User();
-
                     u.setUserId(rs.getInt("user_id"));
-
                     u.setUsername(rs.getString("username"));
-
                     u.setPassword(rs.getString("password"));
-
                     u.setRole(rs.getString("role"));
-
                     Object did = rs.getObject("dentist_id");
-
+                    
                     if (did != null) {
-
                         u.setDentistId(rs.getInt("dentist_id"));
                     }
-
                     return u;
                 }
             }
@@ -77,9 +68,8 @@ public class UserDAO {
 
         try (Connection con = DBConnection.getConnection();
              PreparedStatement pst = con.prepareStatement(sql)) {
-
             pst.setString(1, username);
-
+            
             try (ResultSet rs = pst.executeQuery()) {
 
                 return rs.next();
@@ -103,12 +93,9 @@ public class UserDAO {
               + "VALUES(?,?,'STAFF',NULL)";
 
         try (Connection con = DBConnection.getConnection();
-             PreparedStatement pst = con.prepareStatement(sql)) {
-
+             PreparedStatement pst = con.prepareStatement(sql)) {        
             pst.setString(1, username);
-
             pst.setString(2, password);
-
             return pst.executeUpdate() > 0;
 
         } 
@@ -127,7 +114,6 @@ public class UserDAO {
             String email,
             String phone,
             String specialization) {
-
         Connection con = null;
 
         try {
@@ -145,15 +131,10 @@ public class UserDAO {
 
             try (PreparedStatement pst = con.prepareStatement(dentistSql,Statement.RETURN_GENERATED_KEYS)) 
             {
-
                 pst.setString(1, name);
-
                 pst.setString(2, email);
-
                 pst.setString(3, phone);
-
                 pst.setString(4, specialization);
-
                 pst.executeUpdate();
 
                 try (ResultSet rs = pst.getGeneratedKeys()) {
@@ -177,19 +158,13 @@ public class UserDAO {
                   + "VALUES(?,?,'DENTIST',?)";
 
             try (PreparedStatement pst = con.prepareStatement(userSql)) {
-
                 pst.setString(1, username);
-
                 pst.setString(2, password);
-
                 pst.setInt(3, dentistId);
-
                 pst.executeUpdate();
             }
 
-
             con.commit();
-
             return true;
 
         } catch (Exception e) {
@@ -226,7 +201,6 @@ public class UserDAO {
         return false;
     }
 
-
     public List<User> getAllUsers() {
 
         List<User> list = new ArrayList<>();
@@ -241,17 +215,11 @@ public class UserDAO {
              ResultSet rs = pst.executeQuery()) {
 
             while (rs.next()) {
-
                 User u = new User();
-
                 u.setUserId(rs.getInt("user_id"));
-
                 u.setUsername(rs.getString("username"));
-
                 u.setRole(rs.getString("role"));
-
-                Object did =
-                        rs.getObject("dentist_id");
+                Object did =rs.getObject("dentist_id");
 
                 if (did != null) {
                     u.setDentistId(rs.getInt("dentist_id"));
@@ -282,9 +250,7 @@ public class UserDAO {
              PreparedStatement pst = con.prepareStatement(sql)) {
 
             pst.setString(1, newPassword);
-
             pst.setInt(2, userId);
-
             return pst.executeUpdate() > 0;
 
         } 
@@ -306,19 +272,14 @@ public class UserDAO {
               + "WHERE user_id=?";
 
         try (Connection con = DBConnection.getConnection()) {
-
             String role = null;
 
             try (PreparedStatement pst = con.prepareStatement(checkSql)) {
-                pst.setInt(
-                        1,
-                        userId
-                );
+                pst.setInt(1, userId);
 
                 try (ResultSet rs = pst.executeQuery()) {
 
                     if (rs.next()) {
-
                         role = rs.getString("role");
                     }
                 }
@@ -341,9 +302,7 @@ public class UserDAO {
                   + "WHERE user_id=?";
 
             try (PreparedStatement pst =con.prepareStatement(deleteSql)) {
-
                 pst.setInt(1, userId);
- 
                 return pst.executeUpdate() > 0;
             }
 

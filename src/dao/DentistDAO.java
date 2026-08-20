@@ -4,9 +4,9 @@
  */
 package dao;
 
-import db.DBConnection;
-import model.Dentist;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,45 +14,70 @@ import java.util.List;
  *
  * @author Pc
  */
+
 public class DentistDAO {
+
     public List<Dentist> getAllDentists() {
-        List<Dentist> list = new ArrayList<>();
-        String sql = "SELECT * FROM dentists ORDER BY name";
+        List<Dentist> list =new ArrayList<>();
+
+        String sql =
+                "SELECT d.* "
+                + "FROM dentists d "
+                + "JOIN users u "
+                + "ON d.dentist_id=u.dentist_id "
+                + "WHERE u.role='DENTIST' "
+                + "ORDER BY d.name";
+
         try (Connection con = DBConnection.getConnection();
              PreparedStatement pst = con.prepareStatement(sql);
              ResultSet rs = pst.executeQuery()) {
+
             while (rs.next()) {
-                Dentist d = new Dentist();
-                d.setDentistId(rs.getInt("dentist_id"));
-                d.setName(rs.getString("name"));
-                d.setEmail(rs.getString("email"));
-                d.setPhone(rs.getString("phone"));
-                d.setSpecialization(rs.getString("specialization"));
-                list.add(d);
-            }
-        } catch (Exception e) {
+                Dentist dentist =new Dentist();
+                dentist.setDentistId(rs.getInt("dentist_id"));
+                dentist.setName(rs.getString("name"));
+                dentist.setEmail(rs.getString("email"));
+                dentist.setPhone(rs.getString("phone"));
+                dentist.setSpecialization(rs.getString("specialization"));
+                list.add(dentist);}
+
+        } 
+        
+        catch (Exception e) {
             e.printStackTrace();
         }
+
         return list;
     }
 
-    public Dentist getDentistById(int id) {
-        String sql = "SELECT * FROM dentists WHERE dentist_id=?";
+
+    public Dentist getDentistById(
+            int dentistId) {
+
+        String sql ="SELECT * FROM dentists "+ "WHERE dentist_id=?";
+
         try (Connection con = DBConnection.getConnection();
              PreparedStatement pst = con.prepareStatement(sql)) {
-            pst.setInt(1, id);
-            try (ResultSet rs = pst.executeQuery()) {
-                if (rs.next()) {
-                    Dentist d = new Dentist();
-                    d.setDentistId(rs.getInt("dentist_id"));
-                    d.setName(rs.getString("name"));
-                    d.setEmail(rs.getString("email"));
-                    d.setPhone(rs.getString("phone"));
-                    d.setSpecialization(rs.getString("specialization"));
-                    return d;
-                }
+
+            pst.setInt(1, dentistId);
+            ResultSet rs =pst.executeQuery();
+
+            if (rs.next()) {
+
+                Dentist dentist =new Dentist();
+                dentist.setDentistId(rs.getInt("dentist_id"));
+                dentist.setName(rs.getString("name"));
+                dentist.setEmail(rs.getString("email"));
+                dentist.setPhone(rs.getString("phone"));
+                dentist.setSpecialization(rs.getString("specialization"));
+                return dentist;
             }
-        } catch (Exception e) { e.printStackTrace(); }
+
+        } 
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 }
