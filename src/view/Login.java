@@ -118,18 +118,21 @@ public class Login extends javax.swing.JFrame {
             return;
         }
         
-        if ("STAFF".equalsIgnoreCase(user.getRole())) {
+        if (user.getRole().equalsIgnoreCase("ADMIN")) {
+            new AdminDashboard(user).setVisible(true);
+            dispose();
+        }
+        
+        else if ("STAFF".equalsIgnoreCase(user.getRole())) {
             new StaffDashboard(user).setVisible(true);
             dispose();
         } 
         
         else if ("DENTIST".equalsIgnoreCase(user.getRole())) {
-            
             if (user.getDentistId() == null) {
                 JOptionPane.showMessageDialog(this, "Dentist account is not linked to a dentist record.");
                 return;
             }
-            
             new DentistDashboard(user).setVisible(true);
             dispose();
         } 

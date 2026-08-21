@@ -61,8 +61,7 @@ public class UserDAO {
     public boolean usernameExists(
             String username) {
 
-        String sql =
-                "SELECT user_id "
+        String sql ="SELECT user_id "
               + "FROM users "
               + "WHERE username=?";
 
@@ -87,8 +86,7 @@ public class UserDAO {
             String password) 
     {
 
-        String sql =
-                "INSERT INTO users "
+        String sql ="INSERT INTO users "
               + "(username,password,role,dentist_id) "
               + "VALUES(?,?,'STAFF',NULL)";
 
@@ -122,8 +120,7 @@ public class UserDAO {
 
             con.setAutoCommit(false);
 
-            String dentistSql =
-                    "INSERT INTO dentists "
+            String dentistSql ="INSERT INTO dentists "
                   + "(name,email,phone,specialization) "
                   + "VALUES(?,?,?,?)";
 
@@ -152,8 +149,7 @@ public class UserDAO {
             }
 
 
-            String userSql =
-                    "INSERT INTO users "
+            String userSql ="INSERT INTO users "
                   + "(username,password,role,dentist_id) "
                   + "VALUES(?,?,'DENTIST',?)";
 
@@ -205,8 +201,7 @@ public class UserDAO {
 
         List<User> list = new ArrayList<>();
 
-        String sql =
-                "SELECT user_id, username, role, dentist_id "
+        String sql ="SELECT user_id, username, role, dentist_id "
               + "FROM users "
               + "ORDER BY user_id";
 
@@ -241,8 +236,7 @@ public class UserDAO {
             int userId,
             String newPassword) {
 
-        String sql =
-                "UPDATE users "
+        String sql ="UPDATE users "
               + "SET password=? "
               + "WHERE user_id=?";
 
@@ -266,8 +260,7 @@ public class UserDAO {
     public boolean deleteUser(
             int userId) {
 
-        String checkSql =
-                "SELECT role "
+        String checkSql ="SELECT role "
               + "FROM users "
               + "WHERE user_id=?";
 
@@ -297,9 +290,7 @@ public class UserDAO {
             }
 
 
-            String deleteSql =
-                    "DELETE FROM users "
-                  + "WHERE user_id=?";
+            String deleteSql ="DELETE FROM users " + "WHERE user_id=?";
 
             try (PreparedStatement pst =con.prepareStatement(deleteSql)) {
                 pst.setInt(1, userId);
