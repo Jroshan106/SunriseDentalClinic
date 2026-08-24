@@ -118,10 +118,7 @@ public class AppointmentApprovalForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    /**
-     * @param args the command line arguments
-     */
+
     private void setupTable() {
         tblAppointments.setModel(new DefaultTableModel(new Object[]{"Appointment No", "Patient", "Treatment", "Date", "Time", "Status"}, 0) {
             public boolean isCellEditable(int r, int c) {

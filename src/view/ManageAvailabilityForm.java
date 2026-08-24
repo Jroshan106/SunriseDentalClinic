@@ -248,9 +248,6 @@ public class ManageAvailabilityForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    /**
-     * @param args the command line arguments
-     */
     private void setupTable() {
         tblAvailability.setModel(new DefaultTableModel(new Object[]{"ID", "Date", "Start Time", "End Time", "Available"}, 0) {
             public boolean isCellEditable(int r, int c) {

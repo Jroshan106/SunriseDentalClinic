@@ -3,13 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
+import model.User;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Pc
  */
-import model.User;
-import javax.swing.JOptionPane;
 
 public class DentistDashboard extends javax.swing.JFrame {
 
@@ -144,9 +144,6 @@ public class DentistDashboard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
     private void btnAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentsActionPerformed
         
         if (currentUser != null)

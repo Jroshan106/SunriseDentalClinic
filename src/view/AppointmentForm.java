@@ -164,9 +164,6 @@ public class AppointmentForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
     private void loadDentists() {
         cmbDentist.removeAllItems();
         List<Dentist> list = new DentistDAO().getAllDentists();
@@ -309,6 +306,10 @@ public class AppointmentForm extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnClose;

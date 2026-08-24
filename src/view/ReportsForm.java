@@ -146,9 +146,6 @@ public class ReportsForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    /**
-     * @param args the command line arguments
-     */
     private void showAppointments(List<Appointment> list, String name) {
         DefaultTableModel m = new DefaultTableModel(new String[]{"Appointment No", "Patient", "Dentist", "Treatment", "Date", "Time", "Status"}, 0) {
             public boolean isCellEditable(int r, int c) {

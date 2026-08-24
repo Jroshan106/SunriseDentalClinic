@@ -147,9 +147,6 @@ public class DentistScheduleForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    /**
-     * @param args the command line arguments
-     */
     private void setupTable() {
         tblSchedule.setModel(new DefaultTableModel(new Object[]{"ID", "Dentist", "Date", "Start Time", "End Time", "Available"}, 0) {
             public boolean isCellEditable(int r, int c) {

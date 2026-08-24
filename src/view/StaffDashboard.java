@@ -144,7 +144,7 @@ public class StaffDashboard extends javax.swing.JFrame {
         });
         jPanel1.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 30, -1, -1));
 
-        btnExit.setText("Exit System");
+        btnExit.setText("Exit ");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
@@ -192,9 +192,6 @@ public class StaffDashboard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to exit?", "Exit", JOptionPane.YES_NO_OPTION);
         if (option == JOptionPane.YES_OPTION)
@@ -238,6 +235,7 @@ public class StaffDashboard extends javax.swing.JFrame {
             new AppointmentForm(currentUser).setVisible(true);
     }//GEN-LAST:event_btnRegisterActionPerformed
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBill;
     private javax.swing.JButton btnExit;
