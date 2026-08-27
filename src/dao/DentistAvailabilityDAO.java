@@ -23,7 +23,7 @@ public class DentistAvailabilityDAO {
             pst.setTime(3, Time.valueOf(norm(a.getStartTime())));
             pst.setTime(4, Time.valueOf(norm(a.getEndTime())));
             return pst.executeUpdate() > 0;
-        } catch (Exception e) { e.printStackTrace(); }
+        } catch (Exception e) {}
         return false;
     }
 
@@ -33,7 +33,7 @@ public class DentistAvailabilityDAO {
             pst.setInt(1, availabilityId);
             pst.setInt(2, dentistId);
             return pst.executeUpdate() > 0;
-        } catch (Exception e) { e.printStackTrace(); }
+        } catch (Exception e) {}
         return false;
     }
 
@@ -46,7 +46,7 @@ public class DentistAvailabilityDAO {
             try (ResultSet rs = pst.executeQuery()) {
                 while (rs.next()) list.add(map(rs));
             }
-        } catch (Exception e) { e.printStackTrace(); }
+        } catch (Exception e) {}
         return list;
     }
 
@@ -56,7 +56,7 @@ public class DentistAvailabilityDAO {
                      "ORDER BY da.available_date, d.name, da.start_time";
         try (Connection con = DBConnection.getConnection(); PreparedStatement pst = con.prepareStatement(sql); ResultSet rs = pst.executeQuery()) {
             while (rs.next()) list.add(map(rs));
-        } catch (Exception e) { e.printStackTrace(); }
+        } catch (Exception e) {}
         return list;
     }
 

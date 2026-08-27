@@ -57,6 +57,8 @@ public class DentistNotesForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Patient Special Notes");
 
+        pnlCenter.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         btnSearch.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnSearch.setText("Search");
         btnSearch.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -65,11 +67,14 @@ public class DentistNotesForm extends javax.swing.JFrame {
                 btnSearchActionPerformed(evt);
             }
         });
+        pnlCenter.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(367, 37, 62, -1));
 
         txtAppointmentNo.setColumns(15);
+        pnlCenter.add(txtAppointmentNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 35, 150, -1));
 
         lblAppointmentNo.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         lblAppointmentNo.setText("Appointment Number:");
+        pnlCenter.add(lblAppointmentNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 40, -1, -1));
 
         txtAppointmentDetails.setEditable(false);
         txtAppointmentDetails.setColumns(20);
@@ -77,12 +82,16 @@ public class DentistNotesForm extends javax.swing.JFrame {
         txtAppointmentDetails.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.lightGray, null));
         jScrollPane1.setViewportView(txtAppointmentDetails);
 
+        pnlCenter.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 108, 623, 135));
+
         txtNote.setColumns(20);
         txtNote.setLineWrap(true);
         txtNote.setRows(5);
         txtNote.setWrapStyleWord(true);
         txtNote.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 153, 255), null));
         jScrollPane2.setViewportView(txtNote);
+
+        pnlCenter.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 273, 623, 217));
 
         btnSave.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
         btnSave.setText("Save / Update Note");
@@ -92,15 +101,17 @@ public class DentistNotesForm extends javax.swing.JFrame {
                 btnSaveActionPerformed(evt);
             }
         });
+        pnlCenter.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 500, 132, 27));
 
         btnClear.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
-        btnClear.setText("Clear");
+        btnClear.setText("Clear all");
         btnClear.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearActionPerformed(evt);
             }
         });
+        pnlCenter.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 60, 30));
 
         btnClose.setText("Close");
         btnClose.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -109,71 +120,15 @@ public class DentistNotesForm extends javax.swing.JFrame {
                 btnCloseActionPerformed(evt);
             }
         });
+        pnlCenter.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(636, 19, 59, -1));
 
         jLabel1.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         jLabel1.setText("Note");
+        pnlCenter.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 255, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         jLabel2.setText("Appointment Details");
-
-        javax.swing.GroupLayout pnlCenterLayout = new javax.swing.GroupLayout(pnlCenter);
-        pnlCenter.setLayout(pnlCenterLayout);
-        pnlCenterLayout.setHorizontalGroup(
-            pnlCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCenterLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(pnlCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCenterLayout.createSequentialGroup()
-                        .addComponent(lblAppointmentNo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAppointmentNo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
-                        .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41))
-                    .addGroup(pnlCenterLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(85, 85, 85))
-                    .addGroup(pnlCenterLayout.createSequentialGroup()
-                        .addGroup(pnlCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addGroup(pnlCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        pnlCenterLayout.setVerticalGroup(
-            pnlCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCenterLayout.createSequentialGroup()
-                .addGroup(pnlCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCenterLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(pnlCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtAppointmentNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAppointmentNo)
-                            .addComponent(btnSearch)))
-                    .addGroup(pnlCenterLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(btnClose)))
-                .addGap(24, 24, 24)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
-                .addGap(1, 1, 1)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(pnlCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnClear))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        pnlCenter.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 85, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -7,31 +7,29 @@ package db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 
 /**
  *
- * @author exam
+ * @author rxam
  */
-
 public class DBConnection {
-    private static final String URL = "jdbc:mysql://localhost:3306/sunrise_dental_db";
-    private static final String USER = "root";
-    private static final String PASSWORD = "";
-    private static final DBConnection INSTANCE = new DBConnection();
+    public static Connection getConnection(){
+        Connection con = null;
+        try {
+            Class.forName(
+            "com.mysql.jdbc.Driver");
 
-    private DBConnection() {}
-
-    public static Connection getConnection() throws SQLException 
-    {
-        try 
-        {
-            Class.forName("com.mysql.jdbc.Driver");
-        } 
-        catch (ClassNotFoundException e) 
-        {
-            throw new SQLException("MySQL JDBC Driver not found. Add mysql-connector-java-5.1.49.jar to Libraries.", e);
+            con = (Connection) DriverManager.getConnection(
+            "jdbc:mysql://localhost:3306/sunrise_dental_db",
+            "root",
+            "");
+            
+            System.out.println("Database Connected");
         }
-        return DriverManager.getConnection(URL, USER, PASSWORD);
+        catch(Exception e){
+            System.out.println(e);
+        }
+        return con;
+
     }
 }

@@ -99,6 +99,7 @@ public class DentistDashboard extends javax.swing.JFrame {
         lblUser.setText("Welcome,");
         jPanel1.add(lblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 25, -1, -1));
 
+        btnLogout.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,14 +116,17 @@ public class DentistDashboard extends javax.swing.JFrame {
         });
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(762, 46, -1, -1));
 
+        jLabel1.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         jLabel1.setText("View / Approve Appointments");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         jLabel2.setText("Manage Available Dates & Time");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         jLabel3.setText("Patient Special Notes");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 320, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 320, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/logo (2).png"))); // NOI18N
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 410, -1, -1));

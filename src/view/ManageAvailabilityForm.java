@@ -42,152 +42,28 @@ public class ManageAvailabilityForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlTop = new javax.swing.JPanel();
-        lblTitle = new javax.swing.JLabel();
-        pnlForm = new javax.swing.JPanel();
-        pnlDate = new javax.swing.JPanel();
-        lblDate = new javax.swing.JLabel();
-        txtDate = new javax.swing.JTextField();
-        pnlStart = new javax.swing.JPanel();
-        lblStartTime = new javax.swing.JLabel();
-        txtStartTime = new javax.swing.JTextField();
-        pnlEnd = new javax.swing.JPanel();
-        lblEndTime = new javax.swing.JLabel();
-        txtEndTime = new javax.swing.JTextField();
-        btnClose = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblAvailability = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
         pnlButtons = new javax.swing.JPanel();
         btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
-        btnRefresh = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblAvailability = new javax.swing.JTable();
+        pnlTop = new javax.swing.JPanel();
+        lblTitle = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
+        txtDate = new javax.swing.JTextField();
+        lblStartTime = new javax.swing.JLabel();
+        txtStartTime = new javax.swing.JTextField();
+        lblEndTime = new javax.swing.JLabel();
+        txtEndTime = new javax.swing.JTextField();
+        btnClose = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Manage Available Dates & Time Slots");
 
-        lblTitle.setFont(new java.awt.Font("Felix Titling", 0, 24)); // NOI18N
-        lblTitle.setText("MANAGE AVAILABLE DATES & TIME");
-
-        pnlForm.setLayout(new javax.swing.BoxLayout(pnlForm, javax.swing.BoxLayout.Y_AXIS));
-
-        lblDate.setText("Available Date (YYYY-MM-DD):");
-
-        txtDate.setColumns(15);
-
-        javax.swing.GroupLayout pnlDateLayout = new javax.swing.GroupLayout(pnlDate);
-        pnlDate.setLayout(pnlDateLayout);
-        pnlDateLayout.setHorizontalGroup(
-            pnlDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDateLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(lblDate)
-                .addGap(57, 57, 57)
-                .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        pnlDateLayout.setVerticalGroup(
-            pnlDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDateLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addGroup(pnlDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-
-        pnlForm.add(pnlDate);
-
-        lblStartTime.setText("Start Time (HH:MM):");
-
-        txtStartTime.setColumns(15);
-        txtStartTime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtStartTimeActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnlStartLayout = new javax.swing.GroupLayout(pnlStart);
-        pnlStart.setLayout(pnlStartLayout);
-        pnlStartLayout.setHorizontalGroup(
-            pnlStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlStartLayout.createSequentialGroup()
-                .addContainerGap(173, Short.MAX_VALUE)
-                .addComponent(lblStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(93, 93, 93)
-                .addComponent(txtStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(138, 138, 138))
-        );
-        pnlStartLayout.setVerticalGroup(
-            pnlStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlStartLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addGroup(pnlStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblStartTime)))
-        );
-
-        pnlForm.add(pnlStart);
-
-        lblEndTime.setText("End Time (HH:MM):");
-
-        txtEndTime.setColumns(15);
-
-        javax.swing.GroupLayout pnlEndLayout = new javax.swing.GroupLayout(pnlEnd);
-        pnlEnd.setLayout(pnlEndLayout);
-        pnlEndLayout.setHorizontalGroup(
-            pnlEndLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlEndLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(lblEndTime)
-                .addGap(118, 118, 118)
-                .addComponent(txtEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        pnlEndLayout.setVerticalGroup(
-            pnlEndLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlEndLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addGroup(pnlEndLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4))
-        );
-
-        pnlForm.add(pnlEnd);
-
-        btnClose.setText("Close");
-        btnClose.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCloseActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnlTopLayout = new javax.swing.GroupLayout(pnlTop);
-        pnlTop.setLayout(pnlTopLayout);
-        pnlTopLayout.setHorizontalGroup(
-            pnlTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTopLayout.createSequentialGroup()
-                .addComponent(pnlForm, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTopLayout.createSequentialGroup()
-                .addComponent(lblTitle)
-                .addGap(57, 57, 57)
-                .addComponent(btnClose)
-                .addGap(22, 22, 22))
-        );
-        pnlTopLayout.setVerticalGroup(
-            pnlTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTopLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(pnlTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnClose))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(pnlForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        jScrollPane1.setViewportView(tblAvailability);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnAdd.setText("Add Availability");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -205,14 +81,6 @@ public class ManageAvailabilityForm extends javax.swing.JFrame {
         });
         pnlButtons.add(btnDelete);
 
-        btnRefresh.setText("Refresh");
-        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRefreshActionPerformed(evt);
-            }
-        });
-        pnlButtons.add(btnRefresh);
-
         btnClear.setText("Clear");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,28 +89,77 @@ public class ManageAvailabilityForm extends javax.swing.JFrame {
         });
         pnlButtons.add(btnClear);
 
+        jPanel1.add(pnlButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 360, -1));
+
+        jScrollPane1.setViewportView(tblAvailability);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 604, 190));
+
+        pnlTop.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTitle.setFont(new java.awt.Font("Felix Titling", 0, 24)); // NOI18N
+        lblTitle.setText("MANAGE AVAILABLE DATES & TIME");
+        pnlTop.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, 47));
+
+        lblDate.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        lblDate.setText("Available Date (YYYY-MM-DD):");
+        pnlTop.add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, -1));
+
+        txtDate.setColumns(15);
+        pnlTop.add(txtDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 120, -1));
+
+        lblStartTime.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        lblStartTime.setText("Start Time (HH:MM):");
+        pnlTop.add(lblStartTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 132, -1));
+
+        txtStartTime.setColumns(15);
+        txtStartTime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStartTimeActionPerformed(evt);
+            }
+        });
+        pnlTop.add(txtStartTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 120, -1));
+
+        lblEndTime.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        lblEndTime.setText("End Time (HH:MM):");
+        pnlTop.add(lblEndTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, -1, 18));
+
+        txtEndTime.setColumns(15);
+        txtEndTime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEndTimeActionPerformed(evt);
+            }
+        });
+        pnlTop.add(txtEndTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, 120, -1));
+
+        btnClose.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        btnClose.setText("Close");
+        btnClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseActionPerformed(evt);
+            }
+        });
+        pnlTop.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(648, 21, -1, -1));
+
+        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/refresh.png"))); // NOI18N
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+        pnlTop.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 170, 40, 40));
+
+        jPanel1.add(pnlTop, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 3, -1, 210));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlButtons, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pnlButtons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
         );
 
         pack();
@@ -374,22 +291,23 @@ public class ManageAvailabilityForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtStartTimeActionPerformed
 
+    private void txtEndTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEndTimeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEndTimeActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnClose;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnRefresh;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblEndTime;
     private javax.swing.JLabel lblStartTime;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlButtons;
-    private javax.swing.JPanel pnlDate;
-    private javax.swing.JPanel pnlEnd;
-    private javax.swing.JPanel pnlForm;
-    private javax.swing.JPanel pnlStart;
     private javax.swing.JPanel pnlTop;
     private javax.swing.JTable tblAvailability;
     private javax.swing.JTextField txtDate;

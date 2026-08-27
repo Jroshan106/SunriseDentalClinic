@@ -41,6 +41,7 @@ public class SearchAppointmentForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Search Appointment");
 
+        btnClose.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnClose.setText("Close");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -48,10 +49,12 @@ public class SearchAppointmentForm extends javax.swing.JFrame {
             }
         });
 
+        lblAppointmentNo.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         lblAppointmentNo.setText("Appointment Number:");
 
         txtAppointmentNo.setColumns(15);
 
+        btnSearch.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,6 +62,7 @@ public class SearchAppointmentForm extends javax.swing.JFrame {
             }
         });
 
+        btnClear.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnClear.setText("Clear");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +80,7 @@ public class SearchAppointmentForm extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addComponent(txtAppointmentNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
-                .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btnClear)
                 .addContainerGap())

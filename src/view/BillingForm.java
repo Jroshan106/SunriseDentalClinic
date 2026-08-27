@@ -69,7 +69,7 @@ public class BillingForm extends javax.swing.JFrame {
         txtAppointmentNo.setColumns(12);
         jPanel1.add(txtAppointmentNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 144, 117, -1));
 
-        btnSearch.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
+        btnSearch.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnSearch.setText("Search");
         btnSearch.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -103,6 +103,7 @@ public class BillingForm extends javax.swing.JFrame {
         txtDiscount.setColumns(12);
         jPanel1.add(txtDiscount, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 113, 154, -1));
 
+        lblTreatmentFee.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         lblTreatmentFee.setText("Treatment Fee:");
         jPanel1.add(lblTreatmentFee, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 54, -1, -1));
 
@@ -112,20 +113,23 @@ public class BillingForm extends javax.swing.JFrame {
         txtConsultationFee.setColumns(12);
         jPanel1.add(txtConsultationFee, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 79, 154, -1));
 
+        lblConsultationFee.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         lblConsultationFee.setText("Consultation Fee:");
         jPanel1.add(lblConsultationFee, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 82, -1, -1));
 
+        lblTotal.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         lblTotal.setText("Total:");
         jPanel1.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 147, -1, -1));
 
         txtTotal.setColumns(12);
         jPanel1.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 144, 154, -1));
 
+        lblDiscount.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         lblDiscount.setText("Discount:");
         jPanel1.add(lblDiscount, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 116, -1, -1));
         jPanel1.add(pnlButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 465, 746, -1));
 
-        btnCalculate.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
+        btnCalculate.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnCalculate.setText("Calculate Bill");
         btnCalculate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCalculate.addActionListener(new java.awt.event.ActionListener() {
@@ -133,9 +137,9 @@ public class BillingForm extends javax.swing.JFrame {
                 btnCalculateActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCalculate, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 438, -1, -1));
+        jPanel1.add(btnCalculate, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, -1, -1));
 
-        btnSave.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
+        btnSave.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnSave.setText("Save Bill");
         btnSave.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -143,9 +147,9 @@ public class BillingForm extends javax.swing.JFrame {
                 btnSaveActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(364, 438, -1, -1));
+        jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, -1, -1));
 
-        btnPrint.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
+        btnPrint.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnPrint.setText("Print Bill");
         btnPrint.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +157,7 @@ public class BillingForm extends javax.swing.JFrame {
                 btnPrintActionPerformed(evt);
             }
         });
-        jPanel1.add(btnPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 438, -1, -1));
+        jPanel1.add(btnPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 440, -1, -1));
 
         btnClose.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
         btnClose.setText("Close");

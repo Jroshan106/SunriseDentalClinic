@@ -23,7 +23,7 @@ public class AppointmentDAO {
              PreparedStatement pst = con.prepareStatement(sql)) {
             pst.setString(1, appointmentNo);
             try (ResultSet rs = pst.executeQuery()) { return rs.next(); }
-        } catch (Exception e) { e.printStackTrace(); }
+        } catch (Exception e) {}
         return false;
     }
 
@@ -39,7 +39,7 @@ public class AppointmentDAO {
             pst.setTime(3, t);
             pst.setTime(4, t);
             try (ResultSet rs = pst.executeQuery()) { return rs.next(); }
-        } catch (Exception e) { e.printStackTrace(); }
+        } catch (Exception e) {}
         return false;
     }
 
@@ -52,7 +52,7 @@ public class AppointmentDAO {
             pst.setDate(2, Date.valueOf(date));
             pst.setTime(3, Time.valueOf(normalizeTime(time)));
             try (ResultSet rs = pst.executeQuery()) { return rs.next(); }
-        } catch (Exception e) { e.printStackTrace(); }
+        } catch (Exception e) {}
         return true;
     }
 
@@ -98,12 +98,11 @@ public class AppointmentDAO {
             }
             con.commit();
             return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            if (con != null) try { con.rollback(); } catch (Exception ignored) {}
+        } catch (SQLException e) {
+            if (con != null) try { con.rollback(); } catch (SQLException ignored) {}
             return false;
         } finally {
-            if (con != null) try { con.close(); } catch (Exception ignored) {}
+            if (con != null) try { con.close(); } catch (SQLException ignored) {}
         }
     }
 
@@ -126,7 +125,7 @@ public class AppointmentDAO {
             try (ResultSet rs = pst.executeQuery()) {
                 if (rs.next()) return map(rs);
             }
-        } catch (Exception e) { e.printStackTrace(); }
+        } catch (Exception e) {}
         return null;
     }
 
@@ -139,7 +138,7 @@ public class AppointmentDAO {
             try (ResultSet rs = pst.executeQuery()) {
                 while (rs.next()) list.add(map(rs));
             }
-        } catch (Exception e) { e.printStackTrace(); }
+        } catch (Exception e) {}
         return list;
     }
 
@@ -161,7 +160,7 @@ public class AppointmentDAO {
              PreparedStatement pst = con.prepareStatement(sql);
              ResultSet rs = pst.executeQuery()) {
             while (rs.next()) list.add(map(rs));
-        } catch (Exception e) { e.printStackTrace(); }
+        } catch (Exception e) {}
         return list;
     }
 
@@ -173,7 +172,7 @@ public class AppointmentDAO {
             pst.setString(2, appointmentNo);
             pst.setInt(3, dentistId);
             return pst.executeUpdate() > 0;
-        } catch (Exception e) { e.printStackTrace(); }
+        } catch (Exception e) {}
         return false;
     }
 

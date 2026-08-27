@@ -38,7 +38,7 @@ public class PatientNoteDAO {
                     return pst.executeUpdate() > 0;
                 }
             }
-        } catch (Exception e) { e.printStackTrace(); }
+        } catch (Exception e) {}
         return false;
     }
 
@@ -60,7 +60,7 @@ public class PatientNoteDAO {
                     list.add(n);
                 }
             }
-        } catch (Exception e) { e.printStackTrace(); }
+        } catch (Exception e) {}
         return list;
     }
 }

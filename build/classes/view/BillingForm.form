@@ -74,7 +74,7 @@
         <Component class="javax.swing.JButton" name="btnSearch">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Gill Sans MT" size="12" style="0"/>
+              <Font name="Gill Sans MT" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Search"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -143,6 +143,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblTreatmentFee">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Gill Sans MT" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Treatment Fee:"/>
           </Properties>
           <Constraints>
@@ -173,6 +176,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblConsultationFee">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Gill Sans MT" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Consultation Fee:"/>
           </Properties>
           <Constraints>
@@ -183,6 +189,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblTotal">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Gill Sans MT" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Total:"/>
           </Properties>
           <Constraints>
@@ -203,6 +212,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblDiscount">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Gill Sans MT" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Discount:"/>
           </Properties>
           <Constraints>
@@ -223,7 +235,7 @@
         <Component class="javax.swing.JButton" name="btnCalculate">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Gill Sans MT" size="12" style="0"/>
+              <Font name="Gill Sans MT" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Calculate Bill"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -237,14 +249,14 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="288" y="438" width="-1" height="-1"/>
+              <AbsoluteConstraints x="470" y="440" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JButton" name="btnSave">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Gill Sans MT" size="12" style="0"/>
+              <Font name="Gill Sans MT" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Save Bill"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -258,14 +270,14 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="364" y="438" width="-1" height="-1"/>
+              <AbsoluteConstraints x="570" y="440" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JButton" name="btnPrint">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Gill Sans MT" size="12" style="0"/>
+              <Font name="Gill Sans MT" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Print Bill"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -279,7 +291,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="416" y="438" width="-1" height="-1"/>
+              <AbsoluteConstraints x="640" y="440" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

@@ -34,7 +34,7 @@ public class ReportsForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlTop = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         btnAll = new javax.swing.JButton();
         btnToday = new javax.swing.JButton();
         btnApproved = new javax.swing.JButton();
@@ -49,42 +49,48 @@ public class ReportsForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Reports");
 
+        btnAll.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnAll.setText("All Appointments");
         btnAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAllActionPerformed(evt);
             }
         });
-        pnlTop.add(btnAll);
+        jPanel1.add(btnAll);
 
+        btnToday.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnToday.setText("Today's Appointments");
         btnToday.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTodayActionPerformed(evt);
             }
         });
-        pnlTop.add(btnToday);
+        jPanel1.add(btnToday);
 
+        btnApproved.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnApproved.setText("Approved Appointments");
         btnApproved.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnApprovedActionPerformed(evt);
             }
         });
-        pnlTop.add(btnApproved);
+        jPanel1.add(btnApproved);
 
+        btnRevenue.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnRevenue.setText("Billing / Revenue");
         btnRevenue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRevenueActionPerformed(evt);
             }
         });
-        pnlTop.add(btnRevenue);
+        jPanel1.add(btnRevenue);
 
         jScrollPane1.setViewportView(tblReports);
 
+        lblSummary.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         lblSummary.setText("Total Records: 0");
 
+        btnPrint.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnPrint.setText("Print Report");
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +98,7 @@ public class ReportsForm extends javax.swing.JFrame {
             }
         });
 
+        btnClose.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnClose.setText("Close");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,15 +115,16 @@ public class ReportsForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlTop, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblSummary, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(18, 18, 18)
+                                .addComponent(btnPrint)
+                                .addGap(9, 9, 9)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -133,14 +141,14 @@ public class ReportsForm extends javax.swing.JFrame {
                     .addComponent(btnClose)
                     .addComponent(jLabel1))
                 .addGap(35, 35, 35)
-                .addComponent(pnlTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSummary, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPrint))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -226,9 +234,9 @@ public class ReportsForm extends javax.swing.JFrame {
     private javax.swing.JButton btnRevenue;
     private javax.swing.JButton btnToday;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblSummary;
-    private javax.swing.JPanel pnlTop;
     private javax.swing.JTable tblReports;
     // End of variables declaration//GEN-END:variables
 }

@@ -41,7 +41,6 @@ public class TreatmentTypeDAO {
 
         } 
         catch (Exception e) {
-            e.printStackTrace();
         }
         return list;
     }
@@ -61,7 +60,6 @@ public class TreatmentTypeDAO {
         } 
         
         catch (Exception e) {
-            e.printStackTrace();
         }
 
         return false;

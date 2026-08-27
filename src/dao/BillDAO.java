@@ -26,7 +26,7 @@ public class BillDAO {
             pst.setDouble(4, b.getDiscount());
             pst.setDouble(5, b.getTotal());
             return pst.executeUpdate() > 0;
-        } catch (Exception e) { e.printStackTrace(); }
+        } catch (Exception e) {}
         return false;
     }
 
@@ -45,7 +45,7 @@ public class BillDAO {
                 b.setBillDate(rs.getTimestamp("bill_date").toString());
                 list.add(b);
             }
-        } catch (Exception e) { e.printStackTrace(); }
+        } catch (Exception e) {}
         return list;
     }
 
@@ -53,7 +53,7 @@ public class BillDAO {
         String sql = "SELECT COALESCE(SUM(total),0) AS total_revenue FROM bills";
         try (Connection con = DBConnection.getConnection(); PreparedStatement pst = con.prepareStatement(sql); ResultSet rs = pst.executeQuery()) {
             if (rs.next()) return rs.getDouble("total_revenue");
-        } catch (Exception e) { e.printStackTrace(); }
+        } catch (Exception e) {}
         return 0;
     }
 }

@@ -123,34 +123,35 @@ public class StaffDashboard extends javax.swing.JFrame {
         });
         jPanel1.add(btnReports, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 100, 100));
 
-        btnHelp.setFont(new java.awt.Font("Gill Sans MT", 2, 12)); // NOI18N
         btnHelp.setText("Help");
         btnHelp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHelpActionPerformed(evt);
             }
         });
-        jPanel1.add(btnHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, -1));
+        jPanel1.add(btnHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, -1, -1));
 
         lblUser.setFont(new java.awt.Font("Gill Sans MT", 2, 14)); // NOI18N
         lblUser.setText("Welcome,");
         jPanel1.add(lblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
+        btnLogout.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 30, -1, -1));
+        jPanel1.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, -1, -1));
 
+        btnExit.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnExit.setText("Exit ");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
             }
         });
-        jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, -1, -1));
+        jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, -1, -1));
 
         lblTitle.setFont(new java.awt.Font("Felix Titling", 0, 24)); // NOI18N
         lblTitle.setText("CLINIC STAFF DASHBOARD");

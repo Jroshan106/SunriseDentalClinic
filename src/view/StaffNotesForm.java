@@ -58,6 +58,7 @@ public class StaffNotesForm extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 125, 660, 284));
 
+        btnPrint.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnPrint.setText("Print Notes");
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,6 +66,7 @@ public class StaffNotesForm extends javax.swing.JFrame {
             }
         });
 
+        btnClear.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnClear.setText("Clear");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,12 +100,14 @@ public class StaffNotesForm extends javax.swing.JFrame {
 
         getContentPane().add(pnlButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, -1, -1));
 
+        lblAppointmentNo.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         lblAppointmentNo.setText("Appointment Number:");
         getContentPane().add(lblAppointmentNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 87, -1, -1));
 
         txtAppointmentNo.setColumns(15);
         getContentPane().add(txtAppointmentNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 84, -1, -1));
 
+        btnSearch.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnSearch.setText("View Notes");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +116,7 @@ public class StaffNotesForm extends javax.swing.JFrame {
         });
         getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 84, -1, -1));
 
+        btnClose.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnClose.setText("Close");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

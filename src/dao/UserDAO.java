@@ -9,6 +9,7 @@ import model.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +53,6 @@ public class UserDAO {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
         }
 
         return null;
@@ -75,7 +75,6 @@ public class UserDAO {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
         }
 
         return false;
@@ -99,7 +98,6 @@ public class UserDAO {
         } 
         
         catch (Exception e) {
-            e.printStackTrace();
         }
 
         return false;
@@ -163,9 +161,8 @@ public class UserDAO {
             con.commit();
             return true;
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
 
-            e.printStackTrace();
 
             if (con != null) {
 
@@ -173,8 +170,7 @@ public class UserDAO {
                     con.rollback();
                 } 
                 
-                catch (Exception ex) {
-                    ex.printStackTrace();
+                catch (SQLException ex) {
                 }
             }
 
@@ -188,8 +184,7 @@ public class UserDAO {
                     con.close();
                 } 
                 
-                catch (Exception e) {
-                    e.printStackTrace();
+                catch (SQLException e) {
                 }
             }
         }
@@ -225,7 +220,6 @@ public class UserDAO {
 
         } 
         catch (Exception e) {
-            e.printStackTrace();
         }
 
         return list;
@@ -250,7 +244,6 @@ public class UserDAO {
         } 
         
         catch (Exception e) {
-            e.printStackTrace();
         }
 
         return false;
@@ -300,7 +293,6 @@ public class UserDAO {
         } 
         
         catch (Exception e) {
-            e.printStackTrace();
         }
 
         return false;

@@ -73,50 +73,64 @@ public class AppointmentForm extends javax.swing.JFrame {
 
         pnlForm.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblAppointmentNo.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         lblAppointmentNo.setText("Appointment Number:");
         pnlForm.add(lblAppointmentNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 79, -1, -1));
 
         txtAppointmentNo.setColumns(20);
-        pnlForm.add(txtAppointmentNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 76, -1, -1));
+        pnlForm.add(txtAppointmentNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, -1, -1));
 
+        lblPatientName.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         lblPatientName.setText("Patient Name:");
         pnlForm.add(lblPatientName, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 128, -1, -1));
 
         txtPatientName.setColumns(20);
-        pnlForm.add(txtPatientName, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 125, -1, -1));
+        pnlForm.add(txtPatientName, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, -1, -1));
 
+        lblAddress.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         lblAddress.setText("Address:");
         pnlForm.add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 174, -1, -1));
 
         txtAddress.setColumns(20);
-        pnlForm.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 171, -1, -1));
+        pnlForm.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, -1, -1));
 
+        lblContact.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         lblContact.setText("Contact Number:");
         pnlForm.add(lblContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 217, -1, -1));
 
         txtContact.setColumns(20);
-        pnlForm.add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 214, -1, -1));
+        pnlForm.add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, -1, -1));
 
+        lblDentist.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         lblDentist.setText("Dentist:");
         pnlForm.add(lblDentist, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 263, -1, -1));
-        pnlForm.add(cmbDentist, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 260, 160, -1));
+        pnlForm.add(cmbDentist, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 160, -1));
 
+        lblTreatment.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         lblTreatment.setText("Treatment Type:");
         pnlForm.add(lblTreatment, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 316, -1, -1));
-        pnlForm.add(cmbTreatment, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 313, 160, -1));
+        pnlForm.add(cmbTreatment, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 160, -1));
 
+        lblDate.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         lblDate.setText("Appointment Date (YYYY-MM-DD):");
         pnlForm.add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 356, -1, -1));
 
         txtDate.setColumns(20);
-        pnlForm.add(txtDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 353, -1, -1));
+        txtDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDateActionPerformed(evt);
+            }
+        });
+        pnlForm.add(txtDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, -1, -1));
 
+        lblTime.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         lblTime.setText("Appointment Time (HH:MM):");
         pnlForm.add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 406, -1, -1));
 
         txtTime.setColumns(20);
-        pnlForm.add(txtTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 403, -1, -1));
+        pnlForm.add(txtTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, -1, -1));
 
+        btnSave.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnSave.setText("Save");
         btnSave.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(51, 255, 255), null, new java.awt.Color(0, 153, 255)));
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -124,8 +138,9 @@ public class AppointmentForm extends javax.swing.JFrame {
                 btnSaveActionPerformed(evt);
             }
         });
-        pnlForm.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 430, 72, 29));
+        pnlForm.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 440, 72, 29));
 
+        btnClear.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnClear.setText("Clear all");
         btnClear.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 102, 102), new java.awt.Color(204, 0, 0)));
         btnClear.addActionListener(new java.awt.event.ActionListener() {
@@ -133,8 +148,9 @@ public class AppointmentForm extends javax.swing.JFrame {
                 btnClearActionPerformed(evt);
             }
         });
-        pnlForm.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, 64, 29));
+        pnlForm.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 440, 64, 29));
 
+        btnClose.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnClose.setText("Close");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,6 +321,10 @@ public class AppointmentForm extends javax.swing.JFrame {
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
+
+    private void txtDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDateActionPerformed
 
     /**
      * @param args the command line arguments
