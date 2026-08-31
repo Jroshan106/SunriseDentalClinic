@@ -1,17 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package db;
 
-/**
- *
- * @author exam
- */
+import java.sql.Connection;
+
 public class TestConnection {
-    public static void main(String [] args){
-        DBConnection.getConnection();
+
+    public static void main(String[] args) {
+
+        try {
+
+            Connection con = DBConnection.getConnection();
+
+            if (con != null) {
+                System.out.println(
+                    "Database Connected Successfully!"
+                );
+
+                con.close();
+            }
+
+        } catch (Exception e) {
+
+            System.out.println(
+                "Database Connection Failed!"
+            );
+
+            e.printStackTrace();
+        }
     }
 }
