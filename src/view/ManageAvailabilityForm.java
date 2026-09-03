@@ -52,13 +52,13 @@ public class ManageAvailabilityForm extends javax.swing.JFrame {
         pnlTop = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
-        txtDate = new javax.swing.JTextField();
         lblStartTime = new javax.swing.JLabel();
-        txtStartTime = new javax.swing.JTextField();
         lblEndTime = new javax.swing.JLabel();
-        txtEndTime = new javax.swing.JTextField();
         btnClose = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
+        datePicker = new com.github.lgooddatepicker.components.DatePicker();
+        startTimePicker = new com.github.lgooddatepicker.components.TimePicker();
+        endTimePicker = new com.github.lgooddatepicker.components.TimePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Manage Available Dates & Time Slots");
@@ -105,32 +105,13 @@ public class ManageAvailabilityForm extends javax.swing.JFrame {
         lblDate.setText("Available Date (YYYY-MM-DD):");
         pnlTop.add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, -1));
 
-        txtDate.setColumns(15);
-        pnlTop.add(txtDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 120, -1));
-
         lblStartTime.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         lblStartTime.setText("Start Time (HH:MM):");
         pnlTop.add(lblStartTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 132, -1));
 
-        txtStartTime.setColumns(15);
-        txtStartTime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtStartTimeActionPerformed(evt);
-            }
-        });
-        pnlTop.add(txtStartTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 120, -1));
-
         lblEndTime.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         lblEndTime.setText("End Time (HH:MM):");
         pnlTop.add(lblEndTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, -1, 18));
-
-        txtEndTime.setColumns(15);
-        txtEndTime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEndTimeActionPerformed(evt);
-            }
-        });
-        pnlTop.add(txtEndTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, 120, -1));
 
         btnClose.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnClose.setText("Close");
@@ -139,7 +120,7 @@ public class ManageAvailabilityForm extends javax.swing.JFrame {
                 btnCloseActionPerformed(evt);
             }
         });
-        pnlTop.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(648, 21, -1, -1));
+        pnlTop.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, -1, -1));
 
         btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/refresh.png"))); // NOI18N
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
@@ -148,6 +129,9 @@ public class ManageAvailabilityForm extends javax.swing.JFrame {
             }
         });
         pnlTop.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 170, 40, 40));
+        pnlTop.add(datePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, -1, -1));
+        pnlTop.add(startTimePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 140, -1));
+        pnlTop.add(endTimePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 140, -1));
 
         jPanel1.add(pnlTop, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 3, -1, 210));
 
@@ -187,75 +171,105 @@ public class ManageAvailabilityForm extends javax.swing.JFrame {
     }
 
     private void clearFields() {
-        txtDate.setText("");
-        txtStartTime.setText("");
-        txtEndTime.setText("");
+        datePicker.clear();
+        startTimePicker.clear();
+        endTimePicker.clear();
     }
     
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        if (currentUser == null || currentUser.getDentistId() == null) {
-            JOptionPane.showMessageDialog(this, "Please login as a dentist first.");
-            return;
-        }
-        
-        String date = txtDate.getText().trim(), start = txtStartTime.getText().trim(), end = txtEndTime.getText().trim();
-        
-        if (date.isEmpty() || start.isEmpty() || end.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please fill all fields.");
-            return;
-        }
-        
-        LocalDate d;
-        LocalTime s, e;
-        try {
-            d = LocalDate.parse(date);
-            s = LocalTime.parse(start);
-            e = LocalTime.parse(end);
-        } 
-        
-        catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Date must be YYYY-MM-DD and time must be HH:MM.");
-            return;
-        }
-        
-        if (d.isBefore(LocalDate.now())) {
-            JOptionPane.showMessageDialog(this, "Available date cannot be in the past.");
-            return;
-        }
-        
-        if (!s.isBefore(e)) {
-            JOptionPane.showMessageDialog(this, "Start time must be before end time.");
-            return;
-        }
-        
-        List<DentistAvailability> existing = new DentistAvailabilityDAO().getByDentist(currentUser.getDentistId());
-        for (DentistAvailability old : existing) {
-            
-            if (date.equals(old.getAvailableDate())) {
-                LocalTime os = LocalTime.parse(old.getStartTime()), oe = LocalTime.parse(old.getEndTime());
-               
-                if (s.isBefore(oe) && e.isAfter(os)) {
-                    JOptionPane.showMessageDialog(this, "This time overlaps an existing availability slot.");
-                    return;
-                }
+    if (currentUser == null || currentUser.getDentistId() == null) {
+        JOptionPane.showMessageDialog(this,
+                "Please login as a dentist first.");
+        return;
+    }
+
+    // Get date
+    if (datePicker.getDate() == null) {
+        JOptionPane.showMessageDialog(this,
+                "Please select an available date.");
+        return;
+    }
+
+    // Get start time
+    if (startTimePicker.getTime() == null) {
+        JOptionPane.showMessageDialog(this,
+                "Please select a start time.");
+        return;
+    }
+
+    // Get end time
+    if (endTimePicker.getTime() == null) {
+        JOptionPane.showMessageDialog(this,
+                "Please select an end time.");
+        return;
+    }
+
+    LocalDate d = datePicker.getDate();
+    LocalTime s = startTimePicker.getTime();
+    LocalTime e = endTimePicker.getTime();
+
+    String date = d.toString();
+    String start = s.toString();
+    String end = e.toString();
+
+    // Date cannot be in the past
+    if (d.isBefore(LocalDate.now())) {
+        JOptionPane.showMessageDialog(this,
+                "Available date cannot be in the past.");
+        return;
+    }
+
+    // Start must be before end
+    if (!s.isBefore(e)) {
+        JOptionPane.showMessageDialog(this,
+                "Start time must be before end time.");
+        return;
+    }
+
+    // Check existing availability
+    List<DentistAvailability> existing =
+            new DentistAvailabilityDAO()
+                    .getByDentist(currentUser.getDentistId());
+
+    for (DentistAvailability old : existing) {
+
+        if (date.equals(old.getAvailableDate())) {
+
+            LocalTime os = LocalTime.parse(old.getStartTime());
+            LocalTime oe = LocalTime.parse(old.getEndTime());
+
+            if (s.isBefore(oe) && e.isAfter(os)) {
+                JOptionPane.showMessageDialog(this,
+                        "This time overlaps an existing availability slot.");
+                return;
             }
         }
-        
-        DentistAvailability a = new DentistAvailability();
-        a.setDentistId(currentUser.getDentistId());
-        a.setAvailableDate(date);
-        a.setStartTime(start);
-        a.setEndTime(end);
-        a.setAvailable(true);
-        
-        if (new DentistAvailabilityDAO().addAvailability(a)) {
-            JOptionPane.showMessageDialog(this, "Availability added successfully.");
-            clearFields();
-            loadAvailability();
-        } 
-        
-        else
-            JOptionPane.showMessageDialog(this, "Unable to add availability.");
+    }
+
+    // Create availability
+    DentistAvailability a = new DentistAvailability();
+
+    a.setDentistId(currentUser.getDentistId());
+    a.setAvailableDate(date);
+    a.setStartTime(start);
+    a.setEndTime(end);
+    a.setAvailable(true);
+
+    // Save to database
+    if (new DentistAvailabilityDAO().addAvailability(a)) {
+
+        JOptionPane.showMessageDialog(this,
+                "Availability added successfully.");
+
+        clearFields();
+        loadAvailability();
+
+    } else {
+
+        JOptionPane.showMessageDialog(this,
+                "Unable to add availability.");
+    }
+
     }//GEN-LAST:event_btnAddActionPerformed
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         int row = tblAvailability.getSelectedRow();
@@ -287,20 +301,14 @@ public class ManageAvailabilityForm extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
 
-    private void txtStartTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStartTimeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtStartTimeActionPerformed
-
-    private void txtEndTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEndTimeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEndTimeActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnClose;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnRefresh;
+    private com.github.lgooddatepicker.components.DatePicker datePicker;
+    private com.github.lgooddatepicker.components.TimePicker endTimePicker;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDate;
@@ -309,9 +317,7 @@ public class ManageAvailabilityForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlButtons;
     private javax.swing.JPanel pnlTop;
+    private com.github.lgooddatepicker.components.TimePicker startTimePicker;
     private javax.swing.JTable tblAvailability;
-    private javax.swing.JTextField txtDate;
-    private javax.swing.JTextField txtEndTime;
-    private javax.swing.JTextField txtStartTime;
     // End of variables declaration//GEN-END:variables
 }

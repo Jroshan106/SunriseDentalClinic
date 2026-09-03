@@ -15,10 +15,11 @@ import model.Appointment;
 import model.Dentist;
 import model.TreatmentType;
 import model.User;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 import javax.swing.JOptionPane;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class AppointmentForm extends javax.swing.JFrame {
 
@@ -59,13 +60,13 @@ public class AppointmentForm extends javax.swing.JFrame {
         lblTreatment = new javax.swing.JLabel();
         cmbTreatment = new javax.swing.JComboBox();
         lblDate = new javax.swing.JLabel();
-        txtDate = new javax.swing.JTextField();
         lblTime = new javax.swing.JLabel();
-        txtTime = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
         btnClose = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
+        datePicker = new com.github.lgooddatepicker.components.DatePicker();
+        timePicker = new com.github.lgooddatepicker.components.TimePicker();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -78,6 +79,11 @@ public class AppointmentForm extends javax.swing.JFrame {
         pnlForm.add(lblAppointmentNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 79, -1, -1));
 
         txtAppointmentNo.setColumns(20);
+        txtAppointmentNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAppointmentNoActionPerformed(evt);
+            }
+        });
         pnlForm.add(txtAppointmentNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, -1, -1));
 
         lblPatientName.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
@@ -115,20 +121,9 @@ public class AppointmentForm extends javax.swing.JFrame {
         lblDate.setText("Appointment Date (YYYY-MM-DD):");
         pnlForm.add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 356, -1, -1));
 
-        txtDate.setColumns(20);
-        txtDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDateActionPerformed(evt);
-            }
-        });
-        pnlForm.add(txtDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, -1, -1));
-
         lblTime.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         lblTime.setText("Appointment Time (HH:MM):");
         pnlForm.add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 406, -1, -1));
-
-        txtTime.setColumns(20);
-        pnlForm.add(txtTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, -1, -1));
 
         btnSave.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnSave.setText("Save");
@@ -162,6 +157,8 @@ public class AppointmentForm extends javax.swing.JFrame {
         lblTitle.setFont(new java.awt.Font("Felix Titling", 0, 24)); // NOI18N
         lblTitle.setText("REGISTER NEW APPOINTMENT");
         pnlForm.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
+        pnlForm.add(datePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, 150, -1));
+        pnlForm.add(timePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, 150, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/BG - Copy.png"))); // NOI18N
         pnlForm.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 490));
@@ -197,10 +194,12 @@ public class AppointmentForm extends javax.swing.JFrame {
     }
 
     private boolean validateAppointment() {
-        String no = txtAppointmentNo.getText().trim(), name = txtPatientName.getText().trim(), address = txtAddress.getText().trim(),
-                contact = txtContact.getText().trim(), date = txtDate.getText().trim(), time = txtTime.getText().trim();
+     String no = txtAppointmentNo.getText().trim();
+     String name = txtPatientName.getText().trim();
+     String address = txtAddress.getText().trim();
+     String contact = txtContact.getText().trim();
         
-        if (no.isEmpty() || name.isEmpty() || address.isEmpty() || contact.isEmpty() || date.isEmpty() || time.isEmpty()) {
+        if (no.isEmpty() || name.isEmpty() || address.isEmpty() || contact.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill all fields.");
             return false;
         }
@@ -220,25 +219,18 @@ public class AppointmentForm extends javax.swing.JFrame {
             return false;
         }
         
-        try {
-            LocalDate d = LocalDate.parse(date);
-            if (d.isBefore(LocalDate.now())) {
-                JOptionPane.showMessageDialog(this, "Appointment date cannot be in the past.");
-                return false;
-            }
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Date must be YYYY-MM-DD.");
+        if (datePicker.getDate() == null) {
+            JOptionPane.showMessageDialog(this, "Please select appointment date.");
             return false;
         }
-        
-        try {
-            LocalTime.parse(time);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Time must be HH:MM.");
+
+        String date = datePicker.getDate().toString();
+        if (timePicker.getTime() == null) {
+            JOptionPane.showMessageDialog(this, "Please select appointment time.");
             return false;
-            
         }
+
+        String time = timePicker.getTime().toString();
         if (cmbDentist.getSelectedItem() == null || cmbTreatment.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(this, "Select dentist and treatment type.");
             return false;
@@ -253,8 +245,6 @@ public class AppointmentForm extends javax.swing.JFrame {
         txtPatientName.setText("");
         txtAddress.setText("");
         txtContact.setText("");
-        txtDate.setText("");
-        txtTime.setText("");
         
         if (cmbDentist.getItemCount() > 0) {
             cmbDentist.setSelectedIndex(0);
@@ -267,53 +257,148 @@ public class AppointmentForm extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         
-        if (currentUser == null) {
-            JOptionPane.showMessageDialog(this, "Please login as clinic staff first.");
-            return;
+    String no = txtAppointmentNo.getText().trim();
+    String name = txtPatientName.getText().trim();
+    String address = txtAddress.getText().trim();
+    String contact = txtContact.getText().trim();
+
+    if (no.isEmpty() || name.isEmpty() || address.isEmpty() || contact.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Please fill all fields.");
+        return;
+    }
+
+    if (!no.matches("[A-Za-z0-9-]{3,20}")) {
+        JOptionPane.showMessageDialog(this,
+                "Appointment number must contain 3-20 letters, numbers or hyphens.");
+        return;
+    }
+
+    if (!name.matches("[A-Za-z .'-]{2,60}")) {
+        JOptionPane.showMessageDialog(this, "Enter a valid patient name.");
+        return;
+    }
+
+    if (!contact.matches("0\\d{9}")) {
+        JOptionPane.showMessageDialog(this,
+                "Contact number must contain 10 digits and start with 0.");
+        return;
+    }
+
+    LocalDate selectedDate = datePicker.getDate();
+
+    if (selectedDate == null) {
+        JOptionPane.showMessageDialog(this,
+                "Please select an appointment date.");
+        return;
+    }
+
+    if (selectedDate.isBefore(LocalDate.now())) {
+        JOptionPane.showMessageDialog(this,
+                "Appointment date cannot be in the past.");
+        return;
+    }
+
+    LocalTime selectedTime = timePicker.getTime();
+
+    if (selectedTime == null) {
+        JOptionPane.showMessageDialog(this,
+                "Please select an appointment time.");
+        return;
+    }
+
+    String date = selectedDate.format(
+            DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+    String time = selectedTime.format(
+            DateTimeFormatter.ofPattern("HH:mm"));
+
+    if (cmbDentist.getSelectedItem() == null) {
+        JOptionPane.showMessageDialog(this,
+                "Please select a dentist.");
+        return;
+    }
+
+    if (cmbTreatment.getSelectedItem() == null) {
+        JOptionPane.showMessageDialog(this,
+                "Please select a treatment type.");
+        return;
+    }
+
+    Dentist dentist = (Dentist) cmbDentist.getSelectedItem();
+    TreatmentType treatment =
+            (TreatmentType) cmbTreatment.getSelectedItem();
+
+    AppointmentDAO dao = new AppointmentDAO();
+
+    if (dao.appointmentExists(no)) {
+        JOptionPane.showMessageDialog(this,
+                "This appointment number already exists.");
+        return;
+    }
+
+    if (!dao.isDentistAvailable(
+            dentist.getDentistId(), date, time)) {
+
+        JOptionPane.showMessageDialog(this,
+                "Selected dentist is not available on this date/time."
+                + "\nPlease check the Dentist Schedule.");
+        return;
+    }
+
+    if (dao.isDentistBooked(
+            dentist.getDentistId(), date, time)) {
+
+        JOptionPane.showMessageDialog(this,
+                "This dentist already has an appointment "
+                + "at the selected time.");
+        return;
+    }
+
+    Appointment appointment = new Appointment();
+
+    appointment.setAppointmentNo(no);
+    appointment.setPatientName(name);
+    appointment.setAddress(address);
+    appointment.setContactNo(contact);
+
+    appointment.setDentistId(dentist.getDentistId());
+    appointment.setTreatmentTypeId(
+            treatment.getTreatmentTypeId());
+
+    appointment.setAppointmentDate(date);
+    appointment.setAppointmentTime(time);
+    appointment.setCreatedBy(currentUser.getUserId());
+
+
+
+    if (dao.addAppointment(appointment)) {
+
+        JOptionPane.showMessageDialog(this,"Appointment registered successfully.");
+
+        txtAppointmentNo.setText("");
+        txtPatientName.setText("");
+        txtAddress.setText("");
+        txtContact.setText("");
+
+        datePicker.clear();
+        timePicker.clear();
+
+        if (cmbDentist.getItemCount() > 0) {
+            cmbDentist.setSelectedIndex(0);
         }
-        
-        if (!validateAppointment()) {
-            return;
+
+        if (cmbTreatment.getItemCount() > 0) {
+            cmbTreatment.setSelectedIndex(0);
         }
-        
-        Dentist dentist = (Dentist) cmbDentist.getSelectedItem();
-        TreatmentType treatment = (TreatmentType) cmbTreatment.getSelectedItem();
-        String no = txtAppointmentNo.getText().trim(), date = txtDate.getText().trim(), time = txtTime.getText().trim();
-        AppointmentDAO dao = new AppointmentDAO();
-        
-        if (dao.appointmentExists(no)) {
-            JOptionPane.showMessageDialog(this, "Appointment number already exists.");
-            return;
-        }
-        
-        if (!dao.isDentistAvailable(dentist.getDentistId(), date, time)) {
-            JOptionPane.showMessageDialog(this, "Dentist is not available at this date/time. Check Dentist Schedule.");
-            return;
-        }
-        
-        if (dao.isDentistBooked(dentist.getDentistId(), date, time)) {
-            JOptionPane.showMessageDialog(this, "Dentist already has an appointment at this time.");
-            return;
-        }
-        
-        Appointment a = new Appointment();
-        a.setAppointmentNo(no);
-        a.setPatientName(txtPatientName.getText().trim());
-        a.setAddress(txtAddress.getText().trim());
-        a.setContactNo(txtContact.getText().trim());
-        a.setDentistId(dentist.getDentistId());
-        a.setTreatmentTypeId(treatment.getTreatmentTypeId());
-        a.setAppointmentDate(date);
-        a.setAppointmentTime(time);
-        a.setCreatedBy(currentUser.getUserId());
-        
-        if (dao.addAppointment(a)) {
-            JOptionPane.showMessageDialog(this, "Appointment registered successfully. Status: PENDING");
-            clearFields();
-        } 
-        
-        else
-            JOptionPane.showMessageDialog(this, "Unable to register appointment.");
+
+    } 
+    else {
+
+        JOptionPane.showMessageDialog(this,
+                "Unable to save appointment.",
+                "Error",
+                JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_btnSaveActionPerformed
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         clearFields();
@@ -322,9 +407,9 @@ public class AppointmentForm extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
 
-    private void txtDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateActionPerformed
+    private void txtAppointmentNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAppointmentNoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDateActionPerformed
+    }//GEN-LAST:event_txtAppointmentNoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -336,6 +421,7 @@ public class AppointmentForm extends javax.swing.JFrame {
     private javax.swing.JButton btnSave;
     private javax.swing.JComboBox cmbDentist;
     private javax.swing.JComboBox cmbTreatment;
+    private com.github.lgooddatepicker.components.DatePicker datePicker;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblAppointmentNo;
@@ -347,11 +433,10 @@ public class AppointmentForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTreatment;
     private javax.swing.JPanel pnlForm;
+    private com.github.lgooddatepicker.components.TimePicker timePicker;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtAppointmentNo;
     private javax.swing.JTextField txtContact;
-    private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtPatientName;
-    private javax.swing.JTextField txtTime;
     // End of variables declaration//GEN-END:variables
 }

@@ -46,7 +46,7 @@ public class ManageUsersForm extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(tblUsers);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 101, 650, 304));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 650, 304));
 
         btnResetPassword.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnResetPassword.setText("Reset Password");
@@ -75,7 +75,7 @@ public class ManageUsersForm extends javax.swing.JFrame {
                 btnCloseActionPerformed(evt);
             }
         });
-        jPanel1.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 20, -1, -1));
+        jPanel1.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, -1, -1));
 
         btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/refresh.png"))); // NOI18N
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +83,7 @@ public class ManageUsersForm extends javax.swing.JFrame {
                 btnRefreshActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, 40, 40));
+        jPanel1.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 60, 40, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

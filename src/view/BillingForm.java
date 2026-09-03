@@ -8,11 +8,13 @@ package view;
  *
  * @author Pc
  */
+
 import dao.AppointmentDAO;
 import dao.BillDAO;
 import model.Appointment;
 import model.Bill;
 import javax.swing.JOptionPane;
+import service.PDFService;
 
 public class BillingForm extends javax.swing.JFrame {
 
@@ -137,7 +139,7 @@ public class BillingForm extends javax.swing.JFrame {
                 btnCalculateActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCalculate, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, -1, -1));
+        jPanel1.add(btnCalculate, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, -1, -1));
 
         btnSave.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnSave.setText("Save Bill");
@@ -147,7 +149,7 @@ public class BillingForm extends javax.swing.JFrame {
                 btnSaveActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, -1, -1));
+        jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 440, -1, -1));
 
         btnPrint.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnPrint.setText("Print Bill");
@@ -157,7 +159,7 @@ public class BillingForm extends javax.swing.JFrame {
                 btnPrintActionPerformed(evt);
             }
         });
-        jPanel1.add(btnPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 440, -1, -1));
+        jPanel1.add(btnPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 440, -1, -1));
 
         btnClose.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
         btnClose.setText("Close");
@@ -283,18 +285,110 @@ public class BillingForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaveActionPerformed
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
         
-        if (txtReceipt.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Calculate the bill first.");
-            return;
+            if (currentAppointment == null) {
+
+        JOptionPane.showMessageDialog(
+                this,
+                "Search for an appointment first."
+        );
+
+        return;
+    }
+
+    if (txtTotal.getText().trim().isEmpty()) {
+
+        JOptionPane.showMessageDialog(
+                this,
+                "Calculate the bill first."
+        );
+
+        return;
+    }
+
+    try {
+
+        double treatmentFee =
+                Double.parseDouble(
+                        txtTreatmentFee.getText().trim()
+                );
+
+        double consultationFee =
+                Double.parseDouble(
+                        txtConsultationFee.getText().trim()
+                );
+
+        double discount =
+                Double.parseDouble(
+                        txtDiscount.getText().trim()
+                );
+
+        double total =
+                Double.parseDouble(
+                        txtTotal.getText().trim()
+                );
+
+        String filePath =
+                PDFService.generateBill(
+
+                        currentAppointment.getAppointmentNo(),
+
+                        currentAppointment.getPatientName(),
+
+                        currentAppointment.getDentistName(),
+
+                        currentAppointment.getTreatmentType(),
+
+                        treatmentFee,
+
+                        consultationFee,
+
+                        discount,
+
+                        total
+                );
+
+        if (filePath != null) {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Bill PDF generated successfully!\n\n"
+                    + "Saved to:\n"
+                    + filePath,
+                    "PDF Generated",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+
+        } else {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Unable to generate PDF.",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
         }
-        
-        try {
-            txtReceipt.print();
-        } 
-        
-        catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Printing failed: " + e.getMessage());
-        }
+
+    } catch (NumberFormatException e) {
+
+        JOptionPane.showMessageDialog(
+                this,
+                "Invalid billing amount.",
+                "Error",
+                JOptionPane.ERROR_MESSAGE
+        );
+
+    } catch (Exception e) {
+
+        JOptionPane.showMessageDialog(
+                this,
+                "PDF generation failed: "
+                + e.getMessage(),
+                "Error",
+                JOptionPane.ERROR_MESSAGE
+        );
+
+        e.printStackTrace();
+    }
     }//GEN-LAST:event_btnPrintActionPerformed
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         dispose();
