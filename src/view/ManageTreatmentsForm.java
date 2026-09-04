@@ -13,6 +13,8 @@ public class ManageTreatmentsForm extends javax.swing.JFrame {
     public ManageTreatmentsForm() {
         initComponents();
         setLocationRelativeTo(null);
+
+        setupTable();
         loadTreatments();
     }
 
@@ -219,7 +221,23 @@ public class ManageTreatmentsForm extends javax.swing.JFrame {
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
-
+    
+    private void setupTable() {
+    tblTreatments.setModel(new DefaultTableModel(
+        new Object[][] {},
+        new String[] {
+            "Treatment ID",
+            "Treatment Name",
+            "Description",
+            "Price"
+        }
+    ) {
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false;
+        }
+    });
+}
     private void loadTreatments() {
         DefaultTableModel model = (DefaultTableModel) tblTreatments.getModel();
         model.setRowCount(0);

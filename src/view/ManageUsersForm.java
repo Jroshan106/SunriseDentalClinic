@@ -18,6 +18,8 @@ public class ManageUsersForm extends javax.swing.JFrame {
         initComponents();
         this.currentUser = currentUser;
         setLocationRelativeTo(null);
+
+        setupTable();
         loadUsers();
     }
 
@@ -175,7 +177,23 @@ public class ManageUsersForm extends javax.swing.JFrame {
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
-
+    private void setupTable() {
+        tblUsers.setModel(new DefaultTableModel(
+            new Object[][] {},
+            new String[] {
+                "User ID",
+                "Username",
+                "Role",
+                "Dentist ID",
+                "Dentist Name"
+            }
+        )   {
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false;
+        }
+    });
+}
     private void loadUsers() {
         DefaultTableModel model = (DefaultTableModel) tblUsers.getModel();
         model.setRowCount(0);

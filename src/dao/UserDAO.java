@@ -211,13 +211,15 @@ public class UserDAO {
         List<User> list = new ArrayList<>();
 
         String sql =
-                "SELECT user_id, username, role, dentist_id "
-              + "FROM users "
-              + "ORDER BY user_id";
+            "SELECT u.user_id, u.username, u.role, u.dentist_id, "
+            + "d.name AS dentist_name "
+            + "FROM users u "
+            + "LEFT JOIN dentists d ON u.dentist_id = d.dentist_id "
+            + "ORDER BY u.user_id";
 
         try (Connection con = DBConnection.getConnection();
-             PreparedStatement pst = con.prepareStatement(sql);
-             ResultSet rs = pst.executeQuery()) {
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery()) {
 
             while (rs.next()) {
 
@@ -232,6 +234,8 @@ public class UserDAO {
                 if (did != null) {
                     u.setDentistId(rs.getInt("dentist_id"));
                 }
+
+                u.setDentistName(rs.getString("dentist_name"));
 
                 list.add(u);
             }
