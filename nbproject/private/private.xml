@@ -26,6 +26,14 @@
             <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/ManageUsersForm.java</file>
             <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/ManageTreatmentsForm.java</file>
             <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/dao/TreatmentTypeDAO.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/test/Tests/BillCalculationTest.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/test/Tests/PDFGenerationTest.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/test/Tests/AppointmentBookingTest.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/test/Tests/UserAccountTest.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/DentistDashboard.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/view/StaffDashboard.java</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/Pictures/BG%20-%20Copy.png</file>
+            <file>file:/D:/SunriseDentalClinic_NetBeans_JFrame_Forms/SunriseDentalClinic/src/model/Bill.java</file>
         </group>
     </open-files>
 </project-private>

@@ -183,4 +183,8 @@ public class PDFService {
             e.printStackTrace();
         }
     }
+
+    public static String generateBillPDF(String test_Patient, String dr_Nimal, String teeth_Cleaning, double d, double d0, double d1, double d2) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
